@@ -6,9 +6,21 @@ import 'package:bag_store_ecommerec/furniture/auth/presentation/views/widgets/si
 import 'package:bag_store_ecommerec/furniture/auth/presentation/views/widgets/signup/signup_form.dart';
 import 'package:flutter/material.dart';
 
-class SignupViewBody extends StatelessWidget {
+class SignupViewBody extends StatefulWidget {
   const SignupViewBody({super.key});
 
+  @override
+  State<SignupViewBody> createState() => _SignupViewBodyState();
+}
+
+class _SignupViewBodyState extends State<SignupViewBody> {
+  final GlobalKey<FormState>formKey=GlobalKey<FormState>();
+  AutovalidateMode autovalidateMode=AutovalidateMode.disabled;
+
+  final TextEditingController nameController=TextEditingController();
+    final TextEditingController emailController=TextEditingController();
+     final TextEditingController passwordController=TextEditingController();
+    final TextEditingController phoneController=TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -36,11 +48,17 @@ class SignupViewBody extends StatelessWidget {
             ),),
            
            SizedBox(height: 24,),
-           SignupFoem(),
+           SignupForm(autovalidateMode: autovalidateMode,
+            formKey: formKey,
+             nameController: nameController, 
+             emailController: emailController, 
+             passwordController: passwordController,
+              phoneController: phoneController,),
            SizedBox(height: 12,),
           
            SizedBox(height: 24,),
            CustomButton(text: 'Register', onPressed: (){
+            
            },
            backgroundColor: Color(0xff6C8947),
            color: Color(0xffFFFFFF),

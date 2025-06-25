@@ -3,12 +3,20 @@ import 'package:bag_store_ecommerec/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
-  const CustomTextField({super.key, this.suffixIcon, required this.hintText});
+  const CustomTextField({super.key, this.suffixIcon, required this.hintText, this.controller});
  final Widget? suffixIcon;
  final String hintText;
+ final TextEditingController? controller;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller:controller ,
+      validator: (value){
+        if(value==null||value.isEmpty){
+          return 'This field is required';
+        }
+        return null;
+      },
       decoration: InputDecoration(
         fillColor: Colors.white,
         filled: true,

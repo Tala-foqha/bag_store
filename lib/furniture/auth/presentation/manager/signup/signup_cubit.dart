@@ -16,12 +16,14 @@ Future<void>createUserWithEmailAndPassword(
   String name,
   )async{
     emit(SignupLoading());
-    final result=authRebo.createUserWithEmailAndPassword(
+    final result=await authRebo.createUserWithEmailAndPassword(
       email,
      password,
      phoneNumber,
       name);
-      
+      result.fold((failure)=>
+      emit(SignupFailure(message: failure.message))
+      , (userEntity)=>emit(SignupSuccess(userEntity: userEntity)));
 
   }
   
