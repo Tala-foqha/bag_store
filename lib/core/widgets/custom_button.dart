@@ -5,9 +5,11 @@ import 'package:flutter/material.dart';
 
 
 class CustomButton extends StatelessWidget {
-  const CustomButton({super.key, required this.text, required this.onPressed});
+  const CustomButton({super.key, required this.text, required this.onPressed, this.backgroundColor, this.color});
 final String text;
 final VoidCallback onPressed;
+final Color? backgroundColor;
+final Color? color;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -18,11 +20,11 @@ final VoidCallback onPressed;
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16)
           ),
-          backgroundColor: AppColors.primaryColor,
+          backgroundColor:backgroundColor?? AppColors.primaryColor,
         ),
         onPressed: onPressed,
       
-      child: Text(text,style: AppStyles.Light16.copyWith(color: Colors.white),)),
+      child: Text(text,style: AppStyles.Light16.copyWith(color:color?? Colors.white),)),
     );
   }
 }

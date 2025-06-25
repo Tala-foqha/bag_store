@@ -1,7 +1,9 @@
 // furniture/auth/presentation/views/widgets/signin_view_body.dart
 import 'package:bag_store_ecommerec/core/utils/app_styles.dart';
+import 'package:bag_store_ecommerec/core/widgets/custom_button.dart';
 import 'package:bag_store_ecommerec/furniture/auth/presentation/views/widgets/custom_text_field_email_and_password.dart';
 import 'package:bag_store_ecommerec/furniture/auth/presentation/views/widgets/or_login_widget.dart';
+import 'package:bag_store_ecommerec/furniture/auth/presentation/views/widgets/remmeberme_and_forget_password.dart';
 import 'package:bag_store_ecommerec/furniture/auth/presentation/views/widgets/signin_with_email_or_apple.dart';
 import 'package:flutter/material.dart';
 
@@ -36,27 +38,12 @@ class SigninViewBody extends StatelessWidget {
          SizedBox(height: 24,),
          CustomTextfieldEmailAndPassword(),
          SizedBox(height: 12,),
-         Row(
-          children: [
-            Container(
-              height: 16,
-              width: 16,
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: Color(0xffDFDFDF),
-                )
-              ),
-            ),
-            SizedBox(width: 4,),
-            Text('Remember Me',style: AppStyles.Light16.copyWith(
-              color: Color(0xff070A03)
-            ),),
-            Spacer(),
-            Text('Forgot Password?',style: AppStyles.Light14.copyWith(
-              color: Color(0xff6C8947)
-            ),)
-          ],
-         )
+         RemmebermeAndForgetpassword(),
+         SizedBox(height: 24,),
+         CustomButton(text: 'Login', onPressed: (){},
+         backgroundColor: Color(0xffEDEDED),
+         color: Color(0xffA1A1A1),
+         ),
        
 
           
@@ -67,4 +54,3 @@ class SigninViewBody extends StatelessWidget {
     );
   }
 }
-
