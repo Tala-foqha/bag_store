@@ -44,6 +44,18 @@ class SigninViewBody extends StatelessWidget {
          backgroundColor: Color(0xffEDEDED),
          color: Color(0xffA1A1A1),
          ),
+         Spacer(),
+         Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('Don’t have an account? ',style: AppStyles.Light14.copyWith(
+              color: Color(0xff070A03)
+            ),),
+            Text('Register Now',style: AppStyles.Light14.copyWith(
+              color: Color(0xff6C8947)
+            ),)
+          ],
+         )
        
 
           
