@@ -20,6 +20,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
   AutovalidateMode autovalidateMode=AutovalidateMode.disabled;
 
   final TextEditingController nameController=TextEditingController();
+    final TextEditingController confirmPasswordController=TextEditingController();
     final TextEditingController emailController=TextEditingController();
      final TextEditingController passwordController=TextEditingController();
     final TextEditingController phoneController=TextEditingController();
@@ -55,7 +56,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
              nameController: nameController, 
              emailController: emailController, 
              passwordController: passwordController,
-              phoneController: phoneController,),
+              phoneController: phoneController, confirmpasswordController: confirmPasswordController,),
            SizedBox(height: 12,),
           
            SizedBox(height: 24,),

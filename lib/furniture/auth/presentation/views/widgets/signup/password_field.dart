@@ -7,22 +7,27 @@ import 'package:flutter_svg/svg.dart';
 class PasswordField extends StatefulWidget {
   const PasswordField({
     super.key,
-     this.passwordController, required this.text,
+     this.passwordController, required this.text, this.validator, this.confirmpasswordController, 
   });
 
   final TextEditingController? passwordController;
-  final String text;
+  
+  final TextEditingController? confirmpasswordController;
 
+  final String text;
+final String? Function(String?)? validator;
 
   @override
   State<PasswordField> createState() => _PasswordFieldState();
 }
 
 class _PasswordFieldState extends State<PasswordField> {
+  
   bool obscureText=true;
   @override
   Widget build(BuildContext context) {
     return CustomTextField(
+      validator:widget. validator,
       obscureText: obscureText,
      controller: widget.passwordController,
      hintText: widget.text,

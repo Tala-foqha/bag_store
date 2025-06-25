@@ -11,12 +11,13 @@ final GlobalKey<FormState> formKey;
   final TextEditingController nameController;
   final TextEditingController emailController;
   final TextEditingController passwordController;
+    final TextEditingController confirmpasswordController;
   final TextEditingController phoneController;
   final AutovalidateMode autovalidateMode;
 
   const SignupForm({
     super.key,
-    required this.autovalidateMode, required this.formKey, required this.nameController, required this.emailController, required this.passwordController, required this.phoneController
+    required this.autovalidateMode, required this.formKey, required this.nameController, required this.emailController, required this.passwordController, required this.phoneController, required this.confirmpasswordController
   });
   
 
@@ -31,11 +32,19 @@ final GlobalKey<FormState> formKey;
        children: [
         
         Text('Name',
+        
          style:AppStyles.Light14.copyWith(
            color: Color(0xffA1A1A1)
          ) ,),
          SizedBox(height: 4,),
          CustomTextField(
+          validator:(value){
+            if (value == null || value.isEmpty) {
+                return 'Please enter your username';
+              }
+              return null;
+          }
+           ,
           controller:nameController ,
           hintText: 'Enter Your Name',
          ),
@@ -48,6 +57,11 @@ final GlobalKey<FormState> formKey;
          ) ,),
          SizedBox(height: 4,),
          CustomTextField(
+          validator: (value){ if (value == null || value.isEmpty) {
+                return 'Please enter your email';}
+                return null;
+                },
+                
           controller: emailController,
           hintText: 'Enter Email Address',
          ),
@@ -59,6 +73,10 @@ final GlobalKey<FormState> formKey;
          ) ,),
          SizedBox(height: 4,),
          CustomTextField(
+          validator:  (value){ if (value == null || value.isEmpty) {
+                return 'Please enter your phoneNumber';}
+                return null;
+                },
           controller: phoneController,
           hintText: 'Enter Your Mobile Number',
          ),
@@ -71,7 +89,16 @@ final GlobalKey<FormState> formKey;
            color: Color(0xffA1A1A1)
          ) ,),
           SizedBox(height: 4,),
-           PasswordField(passwordController: passwordController,
+           PasswordField(
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Please enter your password';
+              }
+              return null;
+            },
+            
+            passwordController: passwordController,
+           
            text: 'Enter your password',),
            SizedBox(height: 16,),
             Text('Re-Enter Password',
@@ -79,7 +106,21 @@ final GlobalKey<FormState> formKey;
            color: Color(0xffA1A1A1)
          ) ,),
           SizedBox(height: 4,),
-     PasswordField( text: 'Confirm Your Password',
+     PasswordField( 
+      text: 'Confirm Your Password',
+    
+      
+     validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Please enter your confirm password';
+              }
+              if (value !=confirmpasswordController
+                  ) {
+                return 'Password does not match';
+              }
+              return null;
+            },
+            confirmpasswordController:confirmpasswordController ,
 
            ),
       
