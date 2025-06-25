@@ -1,7 +1,7 @@
 // furniture/auth/presentation/views/widgets/signup/signup_view_bodu.dart
 import 'package:bag_store_ecommerec/core/utils/app_styles.dart';
 import 'package:bag_store_ecommerec/core/widgets/custom_button.dart';
-import 'package:bag_store_ecommerec/furniture/auth/presentation/manager/signup/signup_cubit.dart';
+import 'package:bag_store_ecommerec/furniture/auth/presentation/manager/cubits/signup/signup_cubit.dart';
 import 'package:bag_store_ecommerec/furniture/auth/presentation/views/widgets/signin/custom_text_field_email_and_password.dart';
 import 'package:bag_store_ecommerec/furniture/auth/presentation/views/widgets/signup/already_have_account.dart';
 import 'package:bag_store_ecommerec/furniture/auth/presentation/views/widgets/signup/signup_form.dart';

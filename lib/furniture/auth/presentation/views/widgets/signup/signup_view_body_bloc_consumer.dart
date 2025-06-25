@@ -1,7 +1,7 @@
 // furniture/auth/presentation/views/widgets/signup/signup_view_body_bloc_consumer.dart
 
 import 'package:bag_store_ecommerec/core/helper_function/build_error_bar.dart';
-import 'package:bag_store_ecommerec/furniture/auth/presentation/manager/signup/signup_cubit.dart';
+import 'package:bag_store_ecommerec/furniture/auth/presentation/manager/cubits/signup/signup_cubit.dart';
 import 'package:bag_store_ecommerec/furniture/auth/presentation/views/widgets/signup/signup_view_bodu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

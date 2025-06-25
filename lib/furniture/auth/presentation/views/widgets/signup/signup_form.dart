@@ -114,7 +114,7 @@ final GlobalKey<FormState> formKey;
               if (value == null || value.isEmpty) {
                 return 'Please enter your confirm password';
               }
-              if (value !=confirmpasswordController
+              if (value !=passwordController.text
                   ) {
                 return 'Password does not match';
               }

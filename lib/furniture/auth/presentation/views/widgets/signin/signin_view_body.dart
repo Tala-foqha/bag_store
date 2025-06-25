@@ -1,6 +1,7 @@
 // furniture/auth/presentation/views/widgets/signin/signin_view_body.dart
 import 'package:bag_store_ecommerec/core/utils/app_styles.dart';
 import 'package:bag_store_ecommerec/core/widgets/custom_button.dart';
+import 'package:bag_store_ecommerec/furniture/auth/presentation/manager/cubits/signin/signin_cubit.dart';
 import 'package:bag_store_ecommerec/furniture/auth/presentation/views/signup_view.dart';
 import 'package:bag_store_ecommerec/furniture/auth/presentation/views/widgets/signin/custom_text_field_email_and_password.dart';
 import 'package:bag_store_ecommerec/furniture/auth/presentation/views/widgets/signin/donot_have_account_widget.dart';
@@ -8,10 +9,25 @@ import 'package:bag_store_ecommerec/furniture/auth/presentation/views/widgets/si
 import 'package:bag_store_ecommerec/furniture/auth/presentation/views/widgets/signin/remmeberme_and_forget_password.dart';
 import 'package:bag_store_ecommerec/furniture/auth/presentation/views/widgets/signin/signin_with_email_or_apple.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class SigninViewBody extends StatelessWidget {
+class SigninViewBody extends StatefulWidget {
   const SigninViewBody({super.key});
 
+  @override
+  State<SigninViewBody> createState() => _SigninViewBodyState();
+}
+
+
+
+
+class _SigninViewBodyState extends State<SigninViewBody> {
+final GlobalKey<FormState>formKey=GlobalKey<FormState>();
+  AutovalidateMode autovalidateMode=AutovalidateMode.disabled;
+
+    final TextEditingController emailController=TextEditingController();
+     final TextEditingController passwordController=TextEditingController();
+  
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -42,11 +58,19 @@ class SigninViewBody extends StatelessWidget {
            SizedBox(height: 24,),
            OrLoginWidget(),
            SizedBox(height: 24,),
-           CustomTextfieldEmailAndPassword(),
+           CustomTextfieldEmailAndPassword(formKey: formKey,
+            emailController: emailController,
+             passwordController: passwordController, 
+             autovalidateMode: autovalidateMode,),
            SizedBox(height: 12,),
            RemmebermeAndForgetpassword(),
            SizedBox(height: 24,),
            CustomButton(text: 'Login', onPressed: (){
+            if
+            (formKey.currentState!.validate()){
+              formKey.currentState!.save();
+              context.read<SigninCubit>().signinUser(emailController.text, passwordController.text);
+            }
            },
            backgroundColor: Color(0xffEDEDED),
            color: Color(0xffA1A1A1),

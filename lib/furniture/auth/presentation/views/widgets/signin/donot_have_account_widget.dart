@@ -24,7 +24,7 @@ class DonotHaveAccoutWidget extends StatelessWidget {
          child: GestureDetector(
           onTap: () {
             
-            Navigator.pushReplacementNamed(context, SignupView.routeName);
+            Navigator.pushNamed(context, SignupView.routeName);
           },
            child: Text('Register Now',style: AppStyles.Light14.copyWith(
              color: Color(0xff6C8947)
