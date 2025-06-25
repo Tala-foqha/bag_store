@@ -1,6 +1,7 @@
 // furniture/auth/presentation/views/widgets/signup/signup_form.dart
 import 'package:bag_store_ecommerec/core/utils/app_styles.dart';
 import 'package:bag_store_ecommerec/core/widgets/custom_text_field.dart';
+import 'package:bag_store_ecommerec/furniture/auth/presentation/views/widgets/signup/password_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -70,24 +71,16 @@ final GlobalKey<FormState> formKey;
            color: Color(0xffA1A1A1)
          ) ,),
           SizedBox(height: 4,),
-           CustomTextField(
-            controller: passwordController,
-            hintText: 'Enter Password',
-             suffixIcon: SvgPicture.asset('assets/images/Eye.svg',
-             fit: BoxFit.scaleDown,
-             ),
-           ),
+           PasswordField(passwordController: passwordController,
+           text: 'Enter your password',),
            SizedBox(height: 16,),
             Text('Re-Enter Password',
          style:AppStyles.Light14.copyWith(
            color: Color(0xffA1A1A1)
          ) ,),
           SizedBox(height: 4,),
-           CustomTextField(
-            hintText: 'Confirm Password',
-             suffixIcon: SvgPicture.asset('assets/images/Eye.svg',
-             fit: BoxFit.scaleDown,
-             ),
+     PasswordField( text: 'Confirm Your Password',
+
            ),
       
       

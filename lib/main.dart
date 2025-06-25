@@ -3,7 +3,6 @@ import 'package:bag_store_ecommerec/core/helper_function/on_generate_route.dart'
 import 'package:bag_store_ecommerec/core/services/custom_bloc_observer.dart';
 import 'package:bag_store_ecommerec/core/services/get_it_services.dart';
 import 'package:bag_store_ecommerec/firebase_options.dart';
-import 'package:bag_store_ecommerec/furniture/auth/presentation/views/signin_view.dart';
 import 'package:bag_store_ecommerec/furniture/splash/presentation/views/splash_view.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
