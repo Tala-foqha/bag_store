@@ -7,4 +7,6 @@ import 'package:dartz/dartz.dart';
 abstract class AuthRebo{
   Future<Either<Failure,UserEntity>>createUserWithEmailAndPassword(
     String email,String password,String prhone,String name);
+
+    Future<Either<Failure,UserEntity>>signInWithEmailAndPassword(String email,String password);
 }
