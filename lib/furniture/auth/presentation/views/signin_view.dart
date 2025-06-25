@@ -1,5 +1,5 @@
 // furniture/auth/presentation/views/signin_view.dart
-import 'package:bag_store_ecommerec/furniture/auth/presentation/views/widgets/signin_view_body.dart';
+import 'package:bag_store_ecommerec/furniture/auth/presentation/views/widgets/signin/signin_view_body.dart';
 import 'package:flutter/material.dart';
 
 class SigninView extends StatelessWidget {

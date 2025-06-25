@@ -1,15 +1,13 @@
-// furniture/auth/presentation/views/widgets/signin_view_body.dart
+// furniture/auth/presentation/views/widgets/signup/signup_view_bodu.dart
 import 'package:bag_store_ecommerec/core/utils/app_styles.dart';
 import 'package:bag_store_ecommerec/core/widgets/custom_button.dart';
-import 'package:bag_store_ecommerec/furniture/auth/presentation/views/widgets/custom_text_field_email_and_password.dart';
-import 'package:bag_store_ecommerec/furniture/auth/presentation/views/widgets/donot_have_account_widget.dart';
-import 'package:bag_store_ecommerec/furniture/auth/presentation/views/widgets/or_login_widget.dart';
-import 'package:bag_store_ecommerec/furniture/auth/presentation/views/widgets/remmeberme_and_forget_password.dart';
-import 'package:bag_store_ecommerec/furniture/auth/presentation/views/widgets/signin_with_email_or_apple.dart';
+import 'package:bag_store_ecommerec/furniture/auth/presentation/views/widgets/signin/custom_text_field_email_and_password.dart';
+import 'package:bag_store_ecommerec/furniture/auth/presentation/views/widgets/signup/already_have_account.dart';
+import 'package:bag_store_ecommerec/furniture/auth/presentation/views/widgets/signup/signup_form.dart';
 import 'package:flutter/material.dart';
 
-class SigninViewBody extends StatelessWidget {
-  const SigninViewBody({super.key});
+class SignupViewBody extends StatelessWidget {
+  const SignupViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +25,7 @@ class SigninViewBody extends StatelessWidget {
             width: 77.51,
             height: 32,),
             SizedBox(height: 24,),
-            Text('Let’s get you Login!',style: AppStyles.meduim24.copyWith(
+            Text('Register your account',style: AppStyles.meduim24.copyWith(
               color: Color(0xff070A03)
             )
             ,),
@@ -36,21 +34,20 @@ class SigninViewBody extends StatelessWidget {
             style: AppStyles.Light14.copyWith(
               color: Color(0xffA1A1A1)
             ),),
-            SizedBox(height: 24,),
-           SiginWithGoogleOrApple(),
+           
            SizedBox(height: 24,),
-           OrLoginWidget(),
-           SizedBox(height: 24,),
-           CustomTextfieldEmailAndPassword(),
+           SignupFoem(),
            SizedBox(height: 12,),
-           RemmebermeAndForgetpassword(),
+          
            SizedBox(height: 24,),
-           CustomButton(text: 'Login', onPressed: (){},
-           backgroundColor: Color(0xffEDEDED),
-           color: Color(0xffA1A1A1),
+           CustomButton(text: 'Register', onPressed: (){
+           },
+           backgroundColor: Color(0xff6C8947),
+           color: Color(0xffFFFFFF),
            ),
            Expanded(child: SizedBox()),
-           DonotHaveAccoutWidget(),
+           AlreadyHaveAccount()
+         
            
          
         

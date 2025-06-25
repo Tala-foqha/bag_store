@@ -1,6 +1,6 @@
-// furniture/auth/presentation/views/widgets/custom_text_field_email_and_password.dart
+// furniture/auth/presentation/views/widgets/signin/custom_text_field_email_and_password.dart
 import 'package:bag_store_ecommerec/core/utils/app_styles.dart';
-import 'package:bag_store_ecommerec/furniture/auth/presentation/views/widgets/custom_text_field.dart';
+import 'package:bag_store_ecommerec/core/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -15,13 +15,16 @@ class CustomTextfieldEmailAndPassword extends StatelessWidget {
      mainAxisAlignment: MainAxisAlignment.start,
      crossAxisAlignment: CrossAxisAlignment.start,
      children: [
+      
        
        Text('Email Address',
        style:AppStyles.Light14.copyWith(
          color: Color(0xffA1A1A1)
        ) ,),
        SizedBox(height: 4,),
-       CustomTextField(),
+       CustomTextField(
+        hintText: 'Enter Email Address',
+       ),
        SizedBox(height: 16,),
         
        Text('Password',
@@ -30,10 +33,13 @@ class CustomTextfieldEmailAndPassword extends StatelessWidget {
        ) ,),
         SizedBox(height: 4,),
          CustomTextField(
+          hintText: 'Enter Password',
            suffixIcon: SvgPicture.asset('assets/images/Eye.svg',
            fit: BoxFit.scaleDown,
            ),
          ),
+
+         
     
      ],
     );

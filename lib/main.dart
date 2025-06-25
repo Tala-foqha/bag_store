@@ -16,7 +16,7 @@ class BagStore extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: SplashView(),
       onGenerateRoute: onGenerateRoute,
-      initialRoute: SigninView.routeNmae,
+      initialRoute: SplashView.routeNme,
     );
   }
 }

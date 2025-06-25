@@ -1,6 +1,6 @@
-// furniture/auth/presentation/views/widgets/signin_with_email_or_apple.dart
+// furniture/auth/presentation/views/widgets/signin/signin_with_email_or_apple.dart
 
-import 'package:bag_store_ecommerec/furniture/auth/presentation/views/widgets/signin_with_google_or_apple.dart';
+import 'package:bag_store_ecommerec/furniture/auth/presentation/views/widgets/signin/signin_with_google_or_apple.dart';
 import 'package:flutter/material.dart';
 
 class SiginWithGoogleOrApple extends StatelessWidget {

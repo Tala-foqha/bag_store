@@ -1,10 +1,11 @@
-// furniture/auth/presentation/views/widgets/custom_text_field.dart
+// core/widgets/custom_text_field.dart
 import 'package:bag_store_ecommerec/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
-  const CustomTextField({super.key, this.suffixIcon});
+  const CustomTextField({super.key, this.suffixIcon, required this.hintText});
  final Widget? suffixIcon;
+ final String hintText;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -12,7 +13,7 @@ class CustomTextField extends StatelessWidget {
         fillColor: Colors.white,
         filled: true,
         suffixIcon:suffixIcon ,
-        hintText: 'Enter Email Address',
+        hintText: hintText,
         hintStyle:AppStyles.Light16.copyWith(
           color: Color(0xffDFDFDF)
         ) ,

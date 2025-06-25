@@ -1,7 +1,7 @@
-// furniture/auth/presentation/views/widgets/remmeberme_and_forget_password.dart
+// furniture/auth/presentation/views/widgets/signin/remmeberme_and_forget_password.dart
 
 import 'package:bag_store_ecommerec/core/utils/app_styles.dart';
-import 'package:bag_store_ecommerec/furniture/auth/presentation/views/widgets/cheacked_box.dart';
+import 'package:bag_store_ecommerec/furniture/auth/presentation/views/widgets/signin/cheacked_box.dart';
 import 'package:flutter/material.dart';
 
 class RemmebermeAndForgetpassword extends StatefulWidget {
