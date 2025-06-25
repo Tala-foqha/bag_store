@@ -1,5 +1,6 @@
 // furniture/auth/presentation/views/widgets/signup/signup_view_body_bloc_consumer.dart
 
+import 'package:bag_store_ecommerec/core/helper_function/build_error_bar.dart';
 import 'package:bag_store_ecommerec/furniture/auth/presentation/manager/signup/signup_cubit.dart';
 import 'package:bag_store_ecommerec/furniture/auth/presentation/views/widgets/signup/signup_view_bodu.dart';
 import 'package:flutter/material.dart';
@@ -19,9 +20,7 @@ class SignupViewBodyBlocConsumer extends StatelessWidget {
           Navigator.of(context).pop();
         }
         if(state is SignupFailure){
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(state.message))
-          );
+          buildErrorBar(context, state.message);
         }
        
       },
@@ -32,4 +31,5 @@ class SignupViewBodyBlocConsumer extends StatelessWidget {
       },
     );
   }
+
 }
