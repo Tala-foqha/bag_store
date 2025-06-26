@@ -25,7 +25,7 @@ class HomeViewBody extends StatelessWidget {
           SizedBox(height: 16,),
           AllBrandsAndSeeAllWidgets(),
           SizedBox(height: 16,),
-          BrandItem()
+          BrandItem(),
 
 
       
