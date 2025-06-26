@@ -3,10 +3,12 @@ import 'package:bag_store_ecommerec/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
-  const CustomTextField({super.key, this.suffixIcon, required this.hintText, this.controller,  this.obscureText=false, this.validator});
+  const CustomTextField({super.key, this.suffixIcon, required this.hintText, this.controller,  this.obscureText=false, this.validator, this.prefixIcon, this.color});
  final Widget? suffixIcon;
+ final Widget? prefixIcon;
  final String hintText;
  final TextEditingController? controller;
+ final Color? color;
  final bool obscureText;
  final String? Function(String?)? validator;
   @override
@@ -16,9 +18,10 @@ class CustomTextField extends StatelessWidget {
       controller:controller ,
       validator: validator,
       decoration: InputDecoration(
-        fillColor: Colors.white,
+        fillColor: color??Colors.white,
         filled: true,
         suffixIcon:suffixIcon ,
+        prefixIcon: prefixIcon,
         hintText: hintText,
         hintStyle:AppStyles.Light16.copyWith(
           color: Color(0xffDFDFDF)
