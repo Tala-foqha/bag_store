@@ -15,7 +15,9 @@ class BrandItemListView extends StatelessWidget {
         itemCount: items.length,
         itemBuilder: (context,index){
           return Padding(
-padding: EdgeInsets.only(left: index == 0 ? 0 : 16),           
+padding: EdgeInsets.only(left: 16,
+//right: index==0?16:0), 
+    )   ,
  child: BrandItem(
               brandEntity: items[index],
             ),

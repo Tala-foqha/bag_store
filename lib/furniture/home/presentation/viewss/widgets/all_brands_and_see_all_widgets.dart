@@ -10,19 +10,22 @@ class AllBrandsAndSeeAllWidgets extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(children: [
-      Text('All Brands',
-      style: AppStyles.meduim20.copyWith(
-        color: Color(0xff070A03),
-        fontSize: 18
-      ),
-      ),
-      Spacer(),
-      Text('See All',
-      style: AppStyles.Light14.copyWith(
-        color: Color(0xff6C8947)
-      ),
-      )
-    ],);
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Row(children: [
+        Text('All Brands',
+        style: AppStyles.meduim20.copyWith(
+          color: Color(0xff070A03),
+          fontSize: 18
+        ),
+        ),
+        Spacer(),
+        Text('See All',
+        style: AppStyles.Light14.copyWith(
+          color: Color(0xff6C8947)
+        ),
+        )
+      ],),
+    );
   }
 }
