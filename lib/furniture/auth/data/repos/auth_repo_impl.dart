@@ -8,6 +8,7 @@ import 'package:bag_store_ecommerec/furniture/auth/data/models/user_model.dart';
 import 'package:bag_store_ecommerec/furniture/auth/domain/entites/user_entity.dart';
 import 'package:bag_store_ecommerec/furniture/auth/domain/repos/auth_repo.dart';
 import 'package:dartz/dartz.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthRepoImpl extends AuthRebo {
   final FirebaseAuuthServices firebaseAuuthServices;
@@ -20,19 +21,26 @@ class AuthRepoImpl extends AuthRebo {
     String password,
     String phone,
     String name)async {
+      User ?user;
 try {
-  var user= await firebaseAuuthServices.createUserWithEmailAndPassword(
+   user= await firebaseAuuthServices.createUserWithEmailAndPassword(
     email: email ,
   password: password);
-
-  var userEntity= UserModel.fromFirebaseUser(user);
-
+  var userEntity=UserEntity(name: name, email: email, uId: user.uid, phone: phone);
   await addData(user: userEntity);
   
   return Right(userEntity);
 } on CustomException catch (e) {
+  if(user!=null){
+    await firebaseAuuthServices.deletUser();
+
+  }
   return left(ServerFailure( e.message));
 }catch(e){
+   if(user!=null){
+    await firebaseAuuthServices.deletUser();
+
+  } 
   return left(ServerFailure(e.toString()));
 }
     
@@ -42,6 +50,7 @@ try {
   Future<Either<Failure, UserEntity>> signInWithEmailAndPassword(String email, String password)async {
     try {
   var user=await firebaseAuuthServices.signInWithEmailAndPassword(email: email, password: password);
+
   return Right(UserModel.fromFirebaseUser(user));
 } on CustomException catch (e) {
     return left(ServerFailure( e.message));
@@ -52,10 +61,17 @@ try {
   
   @override
   Future<Either<Failure, UserEntity>> signinWithGoogle()async {
+    User?user;
     try {
-  var user=await firebaseAuuthServices.signInWithGoogle();
+   user=await firebaseAuuthServices.signInWithGoogle();
+  var userEntity=UserModel.fromFirebaseUser(user);
+  await addData(user: userEntity);
   return Right(UserModel.fromFirebaseUser(user));
 } on CustomException catch (e) {
+  if(user!=null){
+    await firebaseAuuthServices.deletUser();
+
+  }
   return left(ServerFailure(e.message));
 }
     
@@ -67,5 +83,5 @@ try {
 
    
   }
- 
+  
 }
