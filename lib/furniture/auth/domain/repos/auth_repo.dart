@@ -9,6 +9,6 @@ abstract class AuthRebo{
     String email,String password,String prhone,String name);
 
     Future<Either<Failure,UserEntity>>signInWithEmailAndPassword(String email,String password);
-
+Future addData({required UserEntity user});
     Future<Either<Failure,UserEntity>>signinWithGoogle();
 }
