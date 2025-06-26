@@ -51,7 +51,9 @@ try {
     try {
   var user=await firebaseAuuthServices.signInWithEmailAndPassword(email: email, password: password);
 
-  return Right(UserModel.fromFirebaseUser(user));
+  var userEntity= await getUserData(uId: user.uid);
+
+  return Right(userEntity);
 } on CustomException catch (e) {
     return left(ServerFailure( e.message));
 } catch(e){
@@ -79,9 +81,21 @@ try {
   
   @override
   Future addData({required UserEntity user})async {
-    await databaseServices.addData(collectionName: BackendEndpoints.addUserData, data: user.toMap());
+    await databaseServices.addData(collectionName: BackendEndpoints.addUserData, 
+    data: user.toMap(),
+    documentId: user.uId
+    );
 
    
+  }
+  
+  @override
+  Future<UserEntity> getUserData({required String uId})async {
+   var userData=await databaseServices.getUserData(
+    path: BackendEndpoints.getUserData, 
+   documentId: uId);
+
+   return UserModel.fromJson(userData);
   }
   
 }
