@@ -43,4 +43,15 @@ try {
   return left(ServerFailure(e.toString()));
 }
   }
+  
+  @override
+  Future<Either<Failure, UserEntity>> signinWithGoogle()async {
+    try {
+  var user=await firebaseAuuthServices.signInWithGoogle();
+  return Right(UserModel.fromFirebaseUser(user));
+} on CustomException catch (e) {
+  return left(ServerFailure(e.message));
+}
+    
+  }
 }

@@ -3,31 +3,34 @@ import 'dart:developer';
 
 import 'package:bag_store_ecommerec/core/errors/exceptions.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
-class FirebaseAuuthServices{
- 
- 
-  Future<User>createUserWithEmailAndPassword({required String email,required String password})async{
+class FirebaseAuuthServices {
+  /// Create new user
+  Future<User> createUserWithEmailAndPassword({
+    required String email,
+    required String password,
+  }) async {
     try {
-  final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-    email: email,
-    password: password,
-  );
- return credential.user!;
-} on FirebaseAuthException catch (e) {
-  if (e.code == 'weak-password') {
-    throw CustomException(message: 'The password provided is too weak.');
-  } else if (e.code == 'email-already-in-use') {
-    throw CustomException( message: 'The account already exists for that email.');
-  }else{
-    throw CustomException(message: 'An error occurred. Please try again later');
+      final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      return credential.user!;
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
+        throw CustomException(message: 'The password provided is too weak.');
+      } else if (e.code == 'email-already-in-use') {
+        throw CustomException(message: 'The account already exists for that email.');
+      } else {
+        throw CustomException(message: 'An error occurred. Please try again later.');
+      }
+    } catch (e) {
+      throw CustomException(message: 'An error occurred. Please try again later.');
+    }
   }
-} catch (e) {
-  throw CustomException(message: 'An error occurred. Please try again later');
-}
 
-  }
-
+  /// Sign in user with email and password
   Future<User> signInWithEmailAndPassword({
     required String email,
     required String password,
@@ -37,8 +40,7 @@ class FirebaseAuuthServices{
           .signInWithEmailAndPassword(email: email, password: password);
       return credential.user!;
     } on FirebaseAuthException catch (e) {
-      log("Exception in FirebaseAuthService.signInWithEmailAndPassword: ${e.toString()} and code is ${e.code}");
-
+      log("FirebaseAuthException: ${e.code}");
       if (e.code == 'user-not-found') {
         throw CustomException(message: 'Email is incorrect or does not exist.');
       } else if (e.code == 'wrong-password') {
@@ -51,14 +53,37 @@ class FirebaseAuuthServices{
         );
       }
     } catch (e) {
-      log("Exception in FirebaseAuthService.signInWithEmailAndPassword: ${e.toString()}");
-      throw CustomException(
-        message: 'An error occurred. Please try again later.',
+      log("Exception: $e");
+      throw CustomException(message: 'An error occurred. Please try again later.');
+    }
+  }
+
+  /// Google Sign-In
+  Future<User> signInWithGoogle() async {
+    try {
+      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+      if (googleUser == null) {
+        throw CustomException(message: 'Google sign-in was cancelled.');
+      }
+
+      final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
+
+      final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth.accessToken,
+        idToken: googleAuth.idToken,
       );
+
+      final userCredential = await FirebaseAuth.instance.signInWithCredential(credential);
+      final user = userCredential.user;
+
+      if (user == null) {
+        throw CustomException(message: 'Google sign-in failed.');
+      }
+
+      return user;
+    } catch (e) {
+      log("Google Sign-In error: $e");
+      throw CustomException(message: 'An error occurred during Google sign-in.');
     }
   }
 }
-
-
-
-

@@ -15,5 +15,14 @@ Future<void>signinUser(String email,String password)async{
   response.fold((failure)=>emit(SiginFailure(messege: failure.message)),
    (userEntity)=>emit(SigninSuccess(userEntity: userEntity)));
 }
+
+Future<void>signinWithGoogle()async{
+  emit(SigninLoading());
+  var response= await authRebo.signinWithGoogle();
+  response.fold((failure)=>emit(SiginFailure(messege: failure.message)),
+   (userEntity)=>emit(SigninSuccess(userEntity: userEntity)));
+}
+
+
   
 }

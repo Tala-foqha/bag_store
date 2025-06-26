@@ -12,7 +12,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SigninViewBody extends StatefulWidget {
-  const SigninViewBody({super.key});
+
+  const SigninViewBody({super.key, required this.state});
+    final SigninState state;
 
   @override
   State<SigninViewBody> createState() => _SigninViewBodyState();
@@ -24,6 +26,7 @@ class SigninViewBody extends StatefulWidget {
 class _SigninViewBodyState extends State<SigninViewBody> {
 final GlobalKey<FormState>formKey=GlobalKey<FormState>();
   AutovalidateMode autovalidateMode=AutovalidateMode.disabled;
+  
 
     final TextEditingController emailController=TextEditingController();
      final TextEditingController passwordController=TextEditingController();
@@ -72,8 +75,8 @@ final GlobalKey<FormState>formKey=GlobalKey<FormState>();
               context.read<SigninCubit>().signinUser(emailController.text, passwordController.text);
             }
            },
-           backgroundColor: Color(0xffEDEDED),
-           color: Color(0xffA1A1A1),
+           backgroundColor:widget.state is SigninSuccess?Color(0xff6C8947): Color(0xffEDEDED),
+           color:widget.state is SigninSuccess?Colors.white: Color(0xffA1A1A1),
            ),
            Expanded(child: SizedBox()),
            DonotHaveAccoutWidget(),
