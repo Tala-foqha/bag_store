@@ -3,7 +3,6 @@ import 'package:bag_store_ecommerec/core/utils/app_styles.dart';
 import 'package:bag_store_ecommerec/core/widgets/custom_text_field.dart';
 import 'package:bag_store_ecommerec/furniture/auth/presentation/views/widgets/signup/password_field.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class SignupForm extends StatelessWidget {
 
