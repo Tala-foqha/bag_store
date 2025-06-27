@@ -2,6 +2,7 @@
 import 'package:bag_store_ecommerec/core/utils/app_styles.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/widgets/all_brands_and_see_all_widgets.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/widgets/bag_with_deatails_item.dart';
+import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/widgets/bag_with_details_item_list_view.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/widgets/brand_item_list_view.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/widgets/brand_tem.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/widgets/home_view_header.dart';
@@ -33,7 +34,7 @@ class HomeViewBody extends StatelessWidget {
             SizedBox(height: 16,),
             BrandItemListView(),
             SizedBox(height: 24,),
-            bagWithDetailsItem()
+            BagWithDetailsItemListView(),
             
         
         

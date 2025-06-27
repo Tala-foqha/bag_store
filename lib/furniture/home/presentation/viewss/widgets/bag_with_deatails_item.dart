@@ -14,7 +14,7 @@ class bagWithDetailsItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 270,
-      height: 420,
+     // height: 420,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
         color: Color(0xffF7F7F7),
