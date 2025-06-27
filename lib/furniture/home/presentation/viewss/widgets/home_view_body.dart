@@ -9,6 +9,7 @@ import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/widgets/b
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/widgets/home_view_header.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/widgets/home_view_search.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/widgets/popular_and_see_all_widget.dart';
+import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/widgets/popular_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -38,7 +39,9 @@ class HomeViewBody extends StatelessWidget {
             SizedBox(height: 24,),
             BagWithDetailsItemListView(),
             SizedBox(height: 24,),
-            PopularAndSeeAllWidgets()
+            PopularAndSeeAllWidgets(),
+            SizedBox(height: 16,),
+            PopularItem()
             
         
         
@@ -48,4 +51,3 @@ class HomeViewBody extends StatelessWidget {
     );
   }
 }
-

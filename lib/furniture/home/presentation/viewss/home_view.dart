@@ -11,7 +11,21 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body:SafeArea(child: HomeViewBody()) ,
+      body:SafeArea(
+        child: Container(
+          decoration:   BoxDecoration(
+      gradient: LinearGradient(
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter,
+        colors: [
+          Colors.white,              // من الأعلى أبيض
+          Color(0xffF7F7F7),         // إلى الأسفل رمادي فاتح جداً
+        ],
+      ),),
+          child: HomeViewBody(),
+        ),
+      ) ,
+      
     );
   }
 }
