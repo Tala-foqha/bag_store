@@ -26,6 +26,11 @@ class AppStyles {
     fontSize: 16,
     fontWeight: FontWeight.w500
   );
+
+  static final TextStyle meduim18=GoogleFonts.lexend(
+    fontSize: 18,
+    fontWeight: FontWeight.w500
+  );
    static final TextStyle Light16=GoogleFonts.lexend(
     fontSize: 16,
     fontWeight: FontWeight.w300

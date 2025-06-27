@@ -29,20 +29,3 @@ class BagStore extends StatelessWidget {
     );
   }
 }
-
-void main() {
-  runApp(const BagStore());
-}
-class BagStore extends StatelessWidget {
-  const BagStore({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: SplashView(),
-      onGenerateRoute: onGenerateRoute,
-      initialRoute: SigninView.routeNmae,
-    );
-  }
-}

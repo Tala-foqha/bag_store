@@ -27,11 +27,14 @@ class bagWithDetailsItem extends StatelessWidget {
         ]
       ),
       child: Column(
-       children: [ Padding(
-         padding: const EdgeInsets.symmetric(horizontal: 33),
+        mainAxisAlignment: MainAxisAlignment.end,
+       children: [
+        SizedBox(height: 32,),
+         Padding(
+         padding: const EdgeInsets.symmetric(horizontal: 33,),
          child: Center(
            child: Image.asset('assets/images/chanel bag.png',
-            fit: BoxFit.scaleDown,
+            fit: BoxFit.contain,
              width: 166,
              height: 185,
             ),
@@ -41,6 +44,8 @@ class bagWithDetailsItem extends StatelessWidget {
         Align(
           alignment: Alignment.bottomCenter,
           child: Container(
+            width: 270,
+
             padding: EdgeInsets.symmetric(horizontal: 16,vertical: 16),
            
             decoration: BoxDecoration(

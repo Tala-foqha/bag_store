@@ -1,4 +1,5 @@
 // furniture/home/presentation/viewss/widgets/home_view_body.dart
+import 'package:bag_store_ecommerec/core/utils/app_colors.dart';
 import 'package:bag_store_ecommerec/core/utils/app_styles.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/widgets/all_brands_and_see_all_widgets.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/widgets/bag_with_deatails_item.dart';
@@ -7,6 +8,7 @@ import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/widgets/b
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/widgets/brand_tem.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/widgets/home_view_header.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/widgets/home_view_search.dart';
+import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/widgets/popular_and_see_all_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -35,6 +37,8 @@ class HomeViewBody extends StatelessWidget {
             BrandItemListView(),
             SizedBox(height: 24,),
             BagWithDetailsItemListView(),
+            SizedBox(height: 24,),
+            PopularAndSeeAllWidgets()
             
         
         
@@ -44,3 +48,4 @@ class HomeViewBody extends StatelessWidget {
     );
   }
 }
+

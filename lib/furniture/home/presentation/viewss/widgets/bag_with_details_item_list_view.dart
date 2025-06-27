@@ -8,7 +8,7 @@ class BagWithDetailsItemListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 420,
+      height: 460,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: 10,
