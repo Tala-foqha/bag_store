@@ -1,29 +1,32 @@
-// features/add_products/data/models/add_product_model.dart
+// furniture/home/data/models/products_model.dart
 import 'dart:io';
 
-import 'package:bag_store_dash_board/features/add_products/data/models/review_model.dart';
-import 'package:bag_store_dash_board/features/add_products/domain/entites/add_product_entity.dart';
-import 'package:flutter/widgets.dart';
+import 'package:bag_store_ecommerec/furniture/home/data/models/review_model.dart';
+import 'package:bag_store_ecommerec/furniture/home/domain/repos/products_entity.dart';
 
-class AddProductModel {
+class ProductsModel {
    final String bagName;
   final String brandName;
   final String description;
   final String price;
-  final File image;
+  //final File image;
    String ?imageUrl;
  final List<String>size;
  final num avgRating=0;
  final num ratingCount=0;
+ final int sellingCount;
+bool isFeatured=false;
  final List<ReviewModel>reviews;
  
 
-  AddProductModel(  {required this.bagName, 
+  ProductsModel(  {required this.bagName, 
   required this.brandName, 
   required this.description,
    required this.price, 
-   required this.image,
+    this.sellingCount=0,
+   //required this.image,
    this.imageUrl,
+   required this.isFeatured,
    required this.size,
    required this.reviews
   
@@ -31,16 +34,19 @@ class AddProductModel {
    
 
    });
-   factory AddProductModel.fromEntity(AddProductEntity addProductEntity){
-    return AddProductModel(
-   reviews: addProductEntity.reviews.map((e)=>ReviewModel.fromEntity(e)).toList(),
-      bagName: addProductEntity.bagName,
-     brandName: addProductEntity.brandName, 
-     description: addProductEntity.description,
-      price: addProductEntity.price, 
-      image: addProductEntity.image,
-      imageUrl: addProductEntity.imageUrl, size: addProductEntity.size);
-   }
+  //  factory ProductsModel.fromEntity(ProductsEntity addProductEntity){
+  //   return ProductsModel(
+  //     isFeatured: addProductEntity.isFeatured,
+  //  reviews: addProductEntity.reviews.map((e)=>ReviewModel.fromEntity(e)).toList(),
+  //     bagName: addProductEntity.bagName,
+  //    brandName: addProductEntity.brandName, 
+  //    description: addProductEntity.description,
+  //     price: addProductEntity.price, 
+  //    // image: addProductEntity.image,
+  //     imageUrl: addProductEntity.imageUrl, size: addProductEntity.size);
+  //  }
+
+
    toJson(){
     return {
     'bagName':bagName,
@@ -54,4 +60,34 @@ class AddProductModel {
 
 
    };}
+
+  ProductsEntity  toEntity(){
+    return ProductsEntity(
+      bagName: bagName, 
+    isFeatured: isFeatured,
+     brandName: brandName,
+      description: description,
+       price: price, size: size, 
+       reviews: reviews.map((e)=>e.toEntity()).toList()
+       );
+   }
+
+
+   factory ProductsModel.fromJson(Map<String, dynamic> json) {
+  return ProductsModel(
+    bagName: json['bagName'] ,
+    brandName: json['brandName'] ,
+    description: json['description'] ,
+    price: json['price'] ?? '',
+    sellingCount: json['sellingCount'],
+    //image: File(json['image']), // لا يمكن استرجاعه من JSON
+    imageUrl: json['imageUrl'],
+    isFeatured: json['isFeatured'] ?? false,
+    size: List<String>.from(json['size'] ?? []),
+    reviews: json['reviews']!=null?List<ReviewModel>.from(
+      json['reviews'].map((e)=>ReviewModel.fromJson(e))
+    ):[]
+  );
+}
+
 }

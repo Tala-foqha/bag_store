@@ -1,4 +1,5 @@
 // furniture/home/presentation/viewss/widgets/home_view_body.dart
+import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/manger/get_products/get_products_cubit.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/widgets/all_brands_and_see_all_widgets.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/widgets/bag_with_details_item_list_view.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/widgets/brand_item_list_view.dart';
@@ -8,10 +9,22 @@ import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/widgets/p
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/widgets/popular_items_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class HomeViewBody extends StatelessWidget {
+class HomeViewBody extends StatefulWidget {
   const HomeViewBody({super.key});
 
+  @override
+  State<HomeViewBody> createState() => _HomeViewBodyState();
+}
+
+class _HomeViewBodyState extends State<HomeViewBody> {
+  @override
+  void initState(){
+    super.initState();
+    context.read<GetProductsCubit>().getProducts();
+
+  }
   @override
   Widget build(BuildContext context) {
     return Padding(

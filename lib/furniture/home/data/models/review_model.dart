@@ -1,5 +1,5 @@
-// features/add_products/data/models/review_model.dart
-import 'package:bag_store_dash_board/features/add_products/domain/entites/review_entity.dart';
+// furniture/home/data/models/review_model.dart
+import 'package:bag_store_ecommerec/furniture/home/domain/repos/review_entity.dart';
 
 class ReviewModel {
   final String name;
@@ -30,6 +30,15 @@ factory ReviewModel.fromJson(Map<String,dynamic>json){
     image:json['image'],
      reviewDescription: json['reviewDescription'], 
      rating: json['rating']);
+}
+
+
+ ReviewEntity toEntity(){
+  return ReviewEntity(name: name, 
+  date: date,
+   image: image,
+    reviewDescription: reviewDescription,
+     rating: rating);
 }
 
 

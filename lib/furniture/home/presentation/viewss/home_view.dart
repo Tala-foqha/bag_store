@@ -1,33 +1,40 @@
 // furniture/home/presentation/viewss/home_view.dart
+import 'package:bag_store_ecommerec/core/services/get_it_services.dart';
+import 'package:bag_store_ecommerec/furniture/home/domain/repos/products_repo.dart';
+import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/manger/get_products/get_products_cubit.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/widgets/home_view_body.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/widgets/home_view_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart' show BlocProvider;
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
-  static const routeName='Home-view';
+  static const routeName = 'Home-view';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar:HomeViewNavBar() ,
+      bottomNavigationBar: HomeViewNavBar(),
       backgroundColor: Colors.white,
-      body:SafeArea(
+      body: SafeArea(
         child: Container(
-          decoration:   BoxDecoration(
-      gradient: LinearGradient(
-        begin: Alignment.topCenter,
-        end: Alignment.bottomCenter,
-        colors: [
-          Colors.white,              // من الأعلى أبيض
-          Color(0xffF7F7F7),         // إلى الأسفل رمادي فاتح جداً
-        ],
-      ),),
-          child: HomeViewBody(),
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [
+                Colors.white, // من الأعلى أبيض
+                Color(0xffF7F7F7), // إلى الأسفل رمادي فاتح جداً
+              ],
+            ),
+          ),
+          child: BlocProvider(
+            create: (context) => GetProductsCubit(getIt.get<ProductsRepo>()),
+            child: HomeViewBody(),
+          ),
         ),
-      ) ,
-      
+      ),
     );
   }
 }

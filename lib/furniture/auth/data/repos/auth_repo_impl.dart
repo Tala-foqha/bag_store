@@ -91,7 +91,7 @@ try {
   
   @override
   Future<UserEntity> getUserData({required String uId})async {
-   var userData=await databaseServices.getUserData(
+   var userData=await databaseServices.getData(
     path: BackendEndpoints.getUserData, 
    documentId: uId);
 
