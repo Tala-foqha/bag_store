@@ -20,7 +20,8 @@ class ActiveItem extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         // ✅ الخط الأخضر بالأعلى
-        Container(
+        AnimatedContainer(
+          duration: Duration(seconds: 3),
           height: 2,
           width: 60,
           margin: EdgeInsets.only(bottom: 4),
