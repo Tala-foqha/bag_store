@@ -8,7 +8,7 @@ ProductsEntity getDummyProduct (){
   brandName: 'Prada',
    description: 'Re-Edition 1978 medium Re-Nylon and Saffiano lea', 
    price: '200.00', 
-   imageUrl: 'assets/images/prada.png', 
+   imageUrl: 'https://raw.githubusercontent.com/Tala-foqha/bag_store/refs/heads/main/assets/images/bags.png', 
    size: ['Large'],
     reviews: []);
 

@@ -73,17 +73,21 @@ class _HomeViewBodyState extends State<HomeViewBody> {
             SizedBox(height: 24),
             PopularAndSeeAllWidgets(),
             SizedBox(height: 16),
-            // BlocBuilder<BestSellingProductsCubit, BestSellingProductsState>(
-            //   builder: (context, state) {
-            //     if (state is BestSellingProdutsFailure) {
-            //       return buildErrorBar(context: context,message: state.errormessage);
-            //     }
-            //     if (state is BestSellingProdutsSuccess) {
-            //       return PopularItemsListView();
-            //     }
-            //     return Loading();
-            //   },
-            // ),
+            BlocBuilder<BestSellingProductsCubit, BestSellingProductsState>(
+              builder: (context, state) {
+                if (state is BestSellingProdutsFailure) {
+                 buildErrorBar(context: context, message: state.errormessage);
+                }
+                if (state is BestSellingProdutsSuccess) {
+                  products=state.bestProducts;
+                  return PopularItemsListView(products: products,);
+                }
+                return Skeletonizer(
+                  enabled: true,
+                  child: PopularItemsListView(
+                   products: getDummyProducts() ,));
+              },
+            ),
           ],
         ),
       ),

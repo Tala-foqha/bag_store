@@ -9,14 +9,14 @@ class BagWithDetailsItemListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 460,
+      height: 445,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: items.length,
         itemBuilder: (context,index){
           return Padding(
             padding: const EdgeInsets.only(left: 16),
-            child: bagWithDetailsItem(
+            child: BagWithDetailsItem(
               products:items[ index],
             ),
           );
