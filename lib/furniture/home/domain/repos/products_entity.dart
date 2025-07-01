@@ -10,7 +10,7 @@ class ProductsEntity {
   final String description;
   final String price;
  // final File image;
-   String ?imageUrl;
+    final String imageUrl;
     final List<String>size;
  final num avgRating=0;
  bool isFeatured=false;
@@ -24,7 +24,7 @@ class ProductsEntity {
   required this.description,
   required this.price, 
    //required this.image,
-    this.imageUrl,
+   required this.imageUrl,
     required this.size,
     required this.reviews
    });

@@ -1,14 +1,16 @@
 // furniture/home/presentation/viewss/widgets/bag_with_deatails_item.dart
 
 import 'package:bag_store_ecommerec/core/utils/app_styles.dart';
+import 'package:bag_store_ecommerec/furniture/home/domain/repos/products_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 
 class bagWithDetailsItem extends StatelessWidget {
   const bagWithDetailsItem({
-    super.key,
+    super.key, required this.products,
   });
+  final ProductsEntity products;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +35,8 @@ class bagWithDetailsItem extends StatelessWidget {
          Padding(
          padding: const EdgeInsets.symmetric(horizontal: 33,),
          child: Center(
-           child: Image.asset('assets/images/chanel bag.png',
+           child: Image.network(
+            products.imageUrl,
             fit: BoxFit.contain,
              width: 166,
              height: 185,
@@ -57,13 +60,13 @@ class bagWithDetailsItem extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Chanel',
+                Text(products.brandName,
                 style: AppStyles.Light14.copyWith(
                   fontSize: 12,
                   color: Color(0xff7B7B7B)
                 ),),
               SizedBox(height: 4,),
-              Text('Mini Flap Bag with Top Handle...',
+              Text(products.description,
               style: AppStyles.meduim20.copyWith(
                 color: Color(0xff070A03)
               ),

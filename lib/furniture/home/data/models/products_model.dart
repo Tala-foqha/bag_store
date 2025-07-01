@@ -10,7 +10,7 @@ class ProductsModel {
   final String description;
   final String price;
   //final File image;
-   String ?imageUrl;
+   final String imageUrl;
  final List<String>size;
  final num avgRating=0;
  final num ratingCount=0;
@@ -25,7 +25,7 @@ bool isFeatured=false;
    required this.price, 
     this.sellingCount=0,
    //required this.image,
-   this.imageUrl,
+   required this.imageUrl,
    required this.isFeatured,
    required this.size,
    required this.reviews
@@ -64,6 +64,7 @@ bool isFeatured=false;
   ProductsEntity  toEntity(){
     return ProductsEntity(
       bagName: bagName, 
+      imageUrl: imageUrl,
     isFeatured: isFeatured,
      brandName: brandName,
       description: description,

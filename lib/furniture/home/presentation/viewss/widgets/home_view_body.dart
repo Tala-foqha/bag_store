@@ -1,4 +1,8 @@
 // furniture/home/presentation/viewss/widgets/home_view_body.dart
+import 'package:bag_store_ecommerec/core/helper_function/build_error_bar.dart';
+import 'package:bag_store_ecommerec/core/helper_function/fet_dummy_products.dart';
+import 'package:bag_store_ecommerec/furniture/home/domain/repos/products_entity.dart';
+import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/manger/best_selling_products/best_selling_products_cubit.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/manger/get_products/get_products_cubit.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/widgets/all_brands_and_see_all_widgets.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/widgets/bag_with_details_item_list_view.dart';
@@ -10,6 +14,7 @@ import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/widgets/p
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 class HomeViewBody extends StatefulWidget {
   const HomeViewBody({super.key});
@@ -20,10 +25,14 @@ class HomeViewBody extends StatefulWidget {
 
 class _HomeViewBodyState extends State<HomeViewBody> {
   @override
-  void initState(){
+  void initState() {
     super.initState();
     context.read<GetProductsCubit>().getProducts();
+    context.read<BestSellingProductsCubit>().getProducts();
   }
+
+  List<ProductsEntity> items = [];
+  List<ProductsEntity>products=[];
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -37,18 +46,44 @@ class _HomeViewBodyState extends State<HomeViewBody> {
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: HomeViewHeader(),
             ),
-            SizedBox(height: 16,),
+            SizedBox(height: 16),
             HomeViewSearch(),
-            SizedBox(height: 16,),
+            SizedBox(height: 16),
             AllBrandsAndSeeAllWidgets(),
-            SizedBox(height: 16,),
+            SizedBox(height: 16),
             BrandItemListView(),
-            SizedBox(height: 24,),
-            BagWithDetailsItemListView(),
-            SizedBox(height: 24,),
+            SizedBox(height: 24),
+            BlocBuilder<GetProductsCubit, GetProductsState>(
+              builder: (context, state) {
+                if (state is GetProductsFailure) {
+                  buildErrorBar(context: context, message: state.errormessage);
+                }
+                if (state is GetProductsSuccess) {
+                  items = state.products;
+                  print('length:${state.products.length}');
+
+                  return BagWithDetailsItemListView(items: items);
+                }
+                return Skeletonizer(
+                  enabled: true,
+                  child: BagWithDetailsItemListView(
+                    items: getDummyProducts(),));
+              },
+            ),
+            SizedBox(height: 24),
             PopularAndSeeAllWidgets(),
-            SizedBox(height: 16,),
-            PopularItemsListView(),
+            SizedBox(height: 16),
+            // BlocBuilder<BestSellingProductsCubit, BestSellingProductsState>(
+            //   builder: (context, state) {
+            //     if (state is BestSellingProdutsFailure) {
+            //       return buildErrorBar(context: context,message: state.errormessage);
+            //     }
+            //     if (state is BestSellingProdutsSuccess) {
+            //       return PopularItemsListView();
+            //     }
+            //     return Loading();
+            //   },
+            // ),
           ],
         ),
       ),
