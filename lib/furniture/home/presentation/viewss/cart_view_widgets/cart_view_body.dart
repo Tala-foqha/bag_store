@@ -5,6 +5,7 @@ import 'package:bag_store_ecommerec/core/widgets/custom_text_field.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/cart_view_widgets/cart_item.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/cart_view_widgets/cart_item_list_view.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/cart_view_widgets/discount_widget.dart';
+import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/cart_view_widgets/ground_total_widget.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/cart_view_widgets/item_total_widget.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/cart_view_widgets/my_cart_nav_bar.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/cart_view_widgets/incrase_abd_deacrese_widgets.dart';
@@ -47,7 +48,14 @@ class CartViewBody extends StatelessWidget {
             SizedBox(height: 16,),
             ItemTotalWidget(),
             SizedBox(height: 12,),
-            DiscountWidget()
+            DiscountWidget(),
+            SizedBox(height: 16,),
+            Divider(
+              color: Color(0xffDFDFDF),
+              thickness: 1,
+            ),
+            SizedBox(height: 16,),
+            GroundTotalWidget()
 
              ],
             ),
