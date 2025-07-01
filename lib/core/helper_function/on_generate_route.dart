@@ -2,6 +2,7 @@
 import 'package:bag_store_ecommerec/furniture/auth/presentation/views/signin_view.dart';
 import 'package:bag_store_ecommerec/furniture/auth/presentation/views/signup_view.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/home_view.dart';
+import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/main_view.dart';
 import 'package:bag_store_ecommerec/furniture/on_bording/presentation%5D/views/on_bording_view.dart';
 import 'package:bag_store_ecommerec/furniture/splash/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
@@ -21,8 +22,8 @@ case SigninView.routeNmae:
 case SignupView.routeName:
     return MaterialPageRoute(builder: (contex)=>SignupView());
 
-    case HomeView.routeName:
-    return MaterialPageRoute(builder: (contex)=>HomeView());
+    case MainView.routeName:
+    return MaterialPageRoute(builder: (contex)=>MainView());
 
 
    default: 

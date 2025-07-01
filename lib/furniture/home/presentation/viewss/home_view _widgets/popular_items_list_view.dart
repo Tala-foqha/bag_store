@@ -1,6 +1,6 @@
-// furniture/home/presentation/viewss/widgets/popular_items_list_view.dart
+// furniture/home/presentation/viewss/home_view _widgets/popular_items_list_view.dart
 import 'package:bag_store_ecommerec/furniture/home/domain/repos/products_entity.dart';
-import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/widgets/popular_item.dart';
+import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/home_view%20_widgets/popular_item.dart';
 import 'package:flutter/material.dart';
 
 class PopularItemsListView extends StatelessWidget {

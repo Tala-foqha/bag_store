@@ -4,6 +4,7 @@ import 'package:bag_store_ecommerec/core/services/custom_bloc_observer.dart';
 import 'package:bag_store_ecommerec/core/services/get_it_services.dart';
 import 'package:bag_store_ecommerec/firebase_options.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/home_view.dart';
+import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/main_view.dart';
 import 'package:bag_store_ecommerec/furniture/splash/presentation/views/splash_view.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +26,7 @@ class BagStore extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: SplashView(),
       onGenerateRoute: onGenerateRoute,
-      initialRoute: HomeView.routeName,
+      initialRoute: MainView.routeName,
     );
   }
 }

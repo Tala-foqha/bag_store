@@ -1,6 +1,6 @@
-// furniture/home/presentation/viewss/widgets/brand_item_list_view.dart
+// furniture/home/presentation/viewss/home_view _widgets/brand_item_list_view.dart
 import 'package:bag_store_ecommerec/furniture/home/domain/entites/brand_entity.dart';
-import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/widgets/brand_tem.dart';
+import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/home_view%20_widgets/brand_tem.dart';
 import 'package:flutter/widgets.dart';
 
 class BrandItemListView extends StatelessWidget {
