@@ -1,8 +1,10 @@
 // furniture/home/presentation/viewss/cart_view_widgets/cart_view_body.dart
 import 'package:bag_store_ecommerec/core/utils/app_colors.dart';
 import 'package:bag_store_ecommerec/core/utils/app_styles.dart';
+import 'package:bag_store_ecommerec/core/widgets/custom_text_field.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/cart_view_widgets/cart_item.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/cart_view_widgets/cart_item_list_view.dart';
+import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/cart_view_widgets/item_total_widget.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/cart_view_widgets/my_cart_nav_bar.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/cart_view_widgets/incrase_abd_deacrese_widgets.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +23,31 @@ class CartViewBody extends StatelessWidget {
           SizedBox(height: 8,),
           MyCartNavBar(),
           SizedBox(height: 16,),
-          CartItemListView()
+          CartItemListView(),
+          SizedBox(height: 100,),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('Enter Promo Code',
+                style: AppStyles.Light14.copyWith(
+                  color: Color(0xffA1A1A1)
+                ), 
+                
+                ),
+             
+            SizedBox(height: 4,),
+            CustomTextField(hintText: '',suffixIcon: SvgPicture.asset('assets/images/check-circle.svg',
+            fit: BoxFit.scaleDown,
+
+            ),),
+            SizedBox(height: 16,),
+            ItemTotalWidget()
+             ],
+            ),
+          ),
         ],
       ),
     ) ;
