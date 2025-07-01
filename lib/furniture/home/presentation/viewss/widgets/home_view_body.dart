@@ -23,7 +23,6 @@ class _HomeViewBodyState extends State<HomeViewBody> {
   void initState(){
     super.initState();
     context.read<GetProductsCubit>().getProducts();
-
   }
   @override
   Widget build(BuildContext context) {
@@ -49,10 +48,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
             SizedBox(height: 24,),
             PopularAndSeeAllWidgets(),
             SizedBox(height: 16,),
-            PopularItemsListView()
-            
-        
-        
+            PopularItemsListView(),
           ],
         ),
       ),
