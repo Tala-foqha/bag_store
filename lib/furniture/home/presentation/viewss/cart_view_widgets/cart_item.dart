@@ -1,0 +1,85 @@
+// furniture/home/presentation/viewss/cart_view_widgets/cart_item.dart
+
+import 'package:bag_store_ecommerec/core/utils/app_colors.dart';
+import 'package:bag_store_ecommerec/core/utils/app_styles.dart';
+import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/cart_view_widgets/incrase_abd_deacrese_widgets.dart';
+import 'package:flutter/material.dart';
+
+class CartIteem extends StatelessWidget {
+  const CartIteem({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Row(
+        children: [
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 16,vertical: 16),
+            height: 112,
+            width: 112,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(16),
+              color: Color(0xffF7F7F7)
+            ),
+            child: Image.asset('assets/images/chanel bag.png'),
+            
+          ),
+          SizedBox(width: 12,),
+          Column(
+            //mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                width: 219,
+                height: 48,
+                child: Text('Mini Flap Bag with Top Handle',
+                style: AppStyles.meduim16.copyWith(
+                  color: Color(0xff070A03)
+                ),
+                ),
+              ),
+              SizedBox(height: 4,),
+              Text('\$1700.00',
+              style: AppStyles.Light14.copyWith(
+                color: Color(0xff070A03)
+              ),
+              ),
+              SizedBox(height: 8,),
+              Row(
+                children: [
+                  IncreaseAndDeacreasWidgets(
+                    colorBackGround: Colors.white,
+                    color: Color(0xffEDEDED),
+                   icon: Icons.remove,
+                    iconColor: Colors.black,
+    
+                  ),
+                  SizedBox(width: 12,),
+                  Text('1',
+                  style: AppStyles.Light16.copyWith(
+                    color: Color(0xff070A03)
+                  ),
+                  ),
+                  SizedBox(width: 12,),
+    
+                  IncreaseAndDeacreasWidgets(
+                    colorBackGround:AppColors.primaryColor,
+                   icon: Icons.add,
+                    iconColor: Colors.white,
+    
+                  ),
+    
+    
+                ],
+              )
+    
+            ],
+          )
+        ],
+      ),
+    );
+  }
+}
