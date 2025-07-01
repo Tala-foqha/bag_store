@@ -9,7 +9,6 @@ import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/cart_view
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/cart_view_widgets/ground_total_widget.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/cart_view_widgets/item_total_widget.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/cart_view_widgets/my_cart_nav_bar.dart';
-import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/cart_view_widgets/incrase_abd_deacrese_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -26,7 +25,7 @@ class CartViewBody extends StatelessWidget {
           SizedBox(height: 8,),
           MyCartNavBar(),
           SizedBox(height: 16,),
-          CartItemListView(),
+          CartItemListView(cartItems: [],),
           SizedBox(height: 100,),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
