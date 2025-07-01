@@ -1,6 +1,7 @@
 // furniture/home/presentation/viewss/cart_view_widgets/cart_view_body.dart
 import 'package:bag_store_ecommerec/core/utils/app_colors.dart';
 import 'package:bag_store_ecommerec/core/utils/app_styles.dart';
+import 'package:bag_store_ecommerec/core/widgets/custom_button.dart';
 import 'package:bag_store_ecommerec/core/widgets/custom_text_field.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/cart_view_widgets/cart_item.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/cart_view_widgets/cart_item_list_view.dart';
@@ -60,6 +61,18 @@ class CartViewBody extends StatelessWidget {
              ],
             ),
           ),
+          SizedBox(height: 8,),
+          Divider(
+              color: Color(0xffDFDFDF),
+              thickness: 1,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: CustomButton(text: 'Proceed to Checkout', onPressed: 
+              (){}),
+            ),
+            SizedBox(height: 10,)
+
         ],
       ),
     ) ;
