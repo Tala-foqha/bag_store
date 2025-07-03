@@ -22,4 +22,12 @@ class CartItemRepoImpl implements CartItemRepo {
   
 
   }
+  
+  @override
+  Future<void> updateItemCart(CartItemEntity cartItem) {
+    // TODO: implement updateItemCart
+    throw UnimplementedError();
+  }
+  
+  
 }

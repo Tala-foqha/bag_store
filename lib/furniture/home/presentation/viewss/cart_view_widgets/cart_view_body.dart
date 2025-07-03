@@ -2,7 +2,7 @@
 import 'package:bag_store_ecommerec/core/utils/app_styles.dart';
 import 'package:bag_store_ecommerec/core/widgets/custom_button.dart';
 import 'package:bag_store_ecommerec/core/widgets/custom_text_field.dart';
-import 'package:bag_store_ecommerec/furniture/check_out/check_out_view.dart';
+import 'package:bag_store_ecommerec/furniture/check_out/presentation/views/check_out_view.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/cart_view_widgets/cart_item_list_view.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/cart_view_widgets/discount_widget.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/cart_view_widgets/ground_total_widget.dart';

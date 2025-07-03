@@ -43,5 +43,4 @@ class FirestoreServices implements  DatabaseServices{
   await firestore.collection(collectionName).doc(docId).set(data);
   }
 
-
 }

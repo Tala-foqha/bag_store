@@ -3,4 +3,5 @@ import 'package:bag_store_ecommerec/furniture/home/domain/entites/cart_item_enti
 
 abstract class CartItemRepo {
   Future<void>addToCart(CartItemEntity cartItemEntity);
+  Future<void>updateItemCart(CartItemEntity cartItem);
 }

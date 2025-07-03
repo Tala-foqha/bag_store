@@ -45,6 +45,7 @@ dependencies:
   google_sign_in: ^6.1.5
   cloud_firestore: ^5.6.9
   skeletonizer: ^2.0.1
+  dotted_line: ^3.2.3
 
   
 

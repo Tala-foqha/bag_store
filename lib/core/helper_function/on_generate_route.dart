@@ -1,7 +1,7 @@
 // core/helper_function/on_generate_route.dart
 import 'package:bag_store_ecommerec/furniture/auth/presentation/views/signin_view.dart';
 import 'package:bag_store_ecommerec/furniture/auth/presentation/views/signup_view.dart';
-import 'package:bag_store_ecommerec/furniture/check_out/check_out_view.dart';
+import 'package:bag_store_ecommerec/furniture/check_out/presentation/views/check_out_view.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/main_view.dart';
 import 'package:bag_store_ecommerec/furniture/on_bording/presentation%5D/views/on_bording_view.dart';
 import 'package:bag_store_ecommerec/furniture/splash/presentation/views/splash_view.dart';
