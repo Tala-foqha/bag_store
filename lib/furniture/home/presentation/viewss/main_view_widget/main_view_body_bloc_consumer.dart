@@ -15,7 +15,7 @@ class MainViewBodyBlocConsumer extends StatelessWidget {
     return BlocConsumer<CartCubit, CartState>(
       listener: (context, state) {
       if(state is CartAdded){
-        buildErrorBar(context: context, message: 'the product added');
+        showBar( context, 'the product added');
       }
       },
       builder: (context, state) {

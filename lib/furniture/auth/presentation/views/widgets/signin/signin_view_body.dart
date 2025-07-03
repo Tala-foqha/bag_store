@@ -71,7 +71,13 @@ final GlobalKey<FormState>formKey=GlobalKey<FormState>();
             if
             (formKey.currentState!.validate()){
               formKey.currentState!.save();
-              context.read<SigninCubit>().signinUser(emailController.text, passwordController.text);
+              final email=emailController.text;
+              final password=passwordController.text;
+              if(email.isEmpty||password.isEmpty){
+print('email osr password is null');
+return;
+              }
+              context.read<SigninCubit>().signinUser(email, password);
             }
            },
            backgroundColor:widget.state is SigninSuccess?Color(0xff6C8947): Color(0xffEDEDED),

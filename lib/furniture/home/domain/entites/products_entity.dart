@@ -1,13 +1,14 @@
-// furniture/home/domain/repos/products_entity.dart
+// furniture/home/domain/entites/products_entity.dart
 
-import 'package:bag_store_ecommerec/furniture/home/domain/repos/review_entity.dart';
+import 'package:bag_store_ecommerec/furniture/home/domain/entites/review_entity.dart';
 
 
 class ProductsEntity {
   final String bagName;
   final String brandName;
   final String description;
-  final String price;
+  final num price;
+  final String code;
  // final File image;
     final String imageUrl;
     final List<String>size;
@@ -18,6 +19,7 @@ class ProductsEntity {
 
   ProductsEntity(  {
   required this.bagName,
+  required this.code,
   required this.isFeatured,
   required this.brandName,
   required this.description,

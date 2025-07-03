@@ -17,6 +17,7 @@ class SiginWithGoogleOrApple extends StatelessWidget {
         Expanded(child: GestureDetector(
           onTap: () {
   context.read<SigninCubit>().signinWithGoogle();
+  //Navigator.pushNamed(context, MainView.routeName);
 },
 
           child: SigninWithGoogleOrAppleItem(

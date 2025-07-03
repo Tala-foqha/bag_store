@@ -3,7 +3,7 @@ import 'package:bag_store_ecommerec/core/errors/failures.dart';
 import 'package:bag_store_ecommerec/core/services/database_services.dart';
 import 'package:bag_store_ecommerec/core/utils/backend_endpoints.dart';
 import 'package:bag_store_ecommerec/furniture/home/data/models/products_model.dart';
-import 'package:bag_store_ecommerec/furniture/home/domain/repos/products_entity.dart';
+import 'package:bag_store_ecommerec/furniture/home/domain/entites/products_entity.dart';
 import 'package:bag_store_ecommerec/furniture/home/domain/repos/products_repo.dart';
 import 'package:dartz/dartz.dart';
 

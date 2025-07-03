@@ -7,4 +7,6 @@ abstract class DatabaseServices{
    String ?documentId,
    Map<String,dynamic>?query
    });
+
+   Future<void>addToCart({required String collectionName,required  Map<String,dynamic>data, required String docId});
  }

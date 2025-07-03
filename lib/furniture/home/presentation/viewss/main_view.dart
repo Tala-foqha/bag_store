@@ -1,4 +1,6 @@
 // furniture/home/presentation/viewss/main_view.dart
+import 'package:bag_store_ecommerec/core/services/get_it_services.dart';
+import 'package:bag_store_ecommerec/furniture/home/domain/repos/cart_item_repo.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/cart_view.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/home_view%20_widgets/home_view_nav_bar.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/home_view.dart';
@@ -21,7 +23,7 @@ class _MainViewState extends State<MainView> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => CartCubit(),
+      create: (context) => CartCubit(getIt.get<CartItemRepo>()),
       child: Scaffold(
         backgroundColor: Colors.white,
         bottomNavigationBar: HomeViewNavBar(

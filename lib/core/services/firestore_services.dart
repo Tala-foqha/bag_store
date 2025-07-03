@@ -37,6 +37,11 @@ class FirestoreServices implements  DatabaseServices{
 
   }
   }
+  
+  @override
+  Future<void> addToCart({required String collectionName, required Map<String, dynamic> data, String? docId})async {
+  await firestore.collection(collectionName).doc(docId).set(data);
+  }
 
 
 }

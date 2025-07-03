@@ -13,9 +13,9 @@ class SigninSuccess extends SigninState{
 }
 
 class SiginFailure extends SigninState{
-  final String messege;
+  final String message;
 
-  SiginFailure({required this.messege});
+  SiginFailure({required this.message});
 }
 
 

@@ -2,16 +2,18 @@
 import 'dart:io';
 
 import 'package:bag_store_ecommerec/furniture/home/data/models/review_model.dart';
-import 'package:bag_store_ecommerec/furniture/home/domain/repos/products_entity.dart';
+import 'package:bag_store_ecommerec/furniture/home/domain/entites/products_entity.dart';
 
 class ProductsModel {
    final String bagName;
   final String brandName;
   final String description;
-  final String price;
+  final num price;
   //final File image;
    final String imageUrl;
+   final String code;
  final List<String>size;
+
  final num avgRating=0;
  final num ratingCount=0;
  final int sellingCount;
@@ -19,8 +21,9 @@ bool isFeatured=false;
  final List<ReviewModel>reviews;
  
 
-  ProductsModel(  {required this.bagName, 
+  ProductsModel(   {required this.bagName, 
   required this.brandName, 
+  required this.code,
   required this.description,
    required this.price, 
     this.sellingCount=0,
@@ -34,21 +37,23 @@ bool isFeatured=false;
    
 
    });
-  //  factory ProductsModel.fromEntity(ProductsEntity addProductEntity){
-  //   return ProductsModel(
-  //     isFeatured: addProductEntity.isFeatured,
-  //  reviews: addProductEntity.reviews.map((e)=>ReviewModel.fromEntity(e)).toList(),
-  //     bagName: addProductEntity.bagName,
-  //    brandName: addProductEntity.brandName, 
-  //    description: addProductEntity.description,
-  //     price: addProductEntity.price, 
-  //    // image: addProductEntity.image,
-  //     imageUrl: addProductEntity.imageUrl, size: addProductEntity.size);
-  //  }
+   factory ProductsModel.fromEntity(ProductsEntity addProductEntity){
+    return ProductsModel(
+      code: addProductEntity.code,
+      isFeatured: addProductEntity.isFeatured,
+   reviews: addProductEntity.reviews.map((e)=>ReviewModel.fromEntity(e)).toList(),
+      bagName: addProductEntity.bagName,
+     brandName: addProductEntity.brandName, 
+     description: addProductEntity.description,
+      price: addProductEntity.price, 
+     // image: addProductEntity.image,
+      imageUrl: addProductEntity.imageUrl, size: addProductEntity.size);
+   }
 
 
    toJson(){
     return {
+      'code':code,
     'bagName':bagName,
     'brandName':brandName,
     'description':description,
@@ -63,6 +68,7 @@ bool isFeatured=false;
 
   ProductsEntity  toEntity(){
     return ProductsEntity(
+      code: code,
       bagName: bagName, 
       imageUrl: imageUrl,
     isFeatured: isFeatured,
@@ -76,6 +82,7 @@ bool isFeatured=false;
 
    factory ProductsModel.fromJson(Map<String, dynamic> json) {
   return ProductsModel(
+    code: json['code'],
     bagName: json['bagName'] ,
     brandName: json['brandName'] ,
     description: json['description'] ,

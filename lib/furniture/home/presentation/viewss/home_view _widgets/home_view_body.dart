@@ -1,7 +1,8 @@
 // furniture/home/presentation/viewss/home_view _widgets/home_view_body.dart
 import 'package:bag_store_ecommerec/core/helper_function/build_error_bar.dart';
 import 'package:bag_store_ecommerec/core/helper_function/fet_dummy_products.dart';
-import 'package:bag_store_ecommerec/furniture/home/domain/repos/products_entity.dart';
+import 'package:bag_store_ecommerec/core/widgets/custom_error_widget.dart';
+import 'package:bag_store_ecommerec/furniture/home/domain/entites/products_entity.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/manger/best_selling_products/best_selling_products_cubit.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/manger/get_products/get_products_cubit.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/home_view%20_widgets/all_brands_and_see_all_widgets.dart';
@@ -56,13 +57,13 @@ class _HomeViewBodyState extends State<HomeViewBody> {
             BlocBuilder<GetProductsCubit, GetProductsState>(
               builder: (context, state) {
                 if (state is GetProductsFailure) {
-                  buildErrorBar(context: context, message: state.errormessage);
+                  return Text('${state.errormessage}');
                 }
                 if (state is GetProductsSuccess) {
-                  items = state.products;
-                  print('length:${state.products.length}');
+                 // items = state.products;
+                 // print('length:${state.products.length}');
 
-                  return BagWithDetailsItemListView(items: items);
+                  return BagWithDetailsItemListView(items: state.products);
                 }
                 return Skeletonizer(
                   enabled: true,
@@ -76,7 +77,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
             BlocBuilder<BestSellingProductsCubit, BestSellingProductsState>(
               builder: (context, state) {
                 if (state is BestSellingProdutsFailure) {
-                 buildErrorBar(context: context, message: state.errormessage);
+                 CustomErrorWidget(text: 'faild',);
                 }
                 if (state is BestSellingProdutsSuccess) {
                   products=state.bestProducts;

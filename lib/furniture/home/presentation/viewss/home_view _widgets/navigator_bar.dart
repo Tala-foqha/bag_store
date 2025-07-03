@@ -1,6 +1,6 @@
 // furniture/home/presentation/viewss/home_view _widgets/navigator_bar.dart
 
-import 'package:bag_store_ecommerec/furniture/home/domain/buttom_navigation_bar_entity.dart';
+import 'package:bag_store_ecommerec/furniture/home/domain/entites/buttom_navigation_bar_entity.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/home_view%20_widgets/active_item.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/home_view%20_widgets/in_active_item.dart';
 import 'package:flutter/material.dart';

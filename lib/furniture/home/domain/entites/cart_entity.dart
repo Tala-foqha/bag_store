@@ -1,6 +1,6 @@
 // furniture/home/domain/entites/cart_entity.dart
 import 'package:bag_store_ecommerec/furniture/home/domain/entites/cart_item_entity.dart';
-import 'package:bag_store_ecommerec/furniture/home/domain/repos/products_entity.dart';
+import 'package:bag_store_ecommerec/furniture/home/domain/entites/products_entity.dart';
 
 class CartEntity {
 final   List<CartItemEntity>cartItems;
@@ -11,6 +11,9 @@ final   List<CartItemEntity>cartItems;
     cartItems.add(cartItemEntity);
 
 
+  }
+  removeCartItem(CartItemEntity cartItem){
+    cartItems.remove(cartItem);
   }
   
   double calculateTotalPrice(){

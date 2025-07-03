@@ -1,5 +1,5 @@
 // furniture/home/data/models/review_model.dart
-import 'package:bag_store_ecommerec/furniture/home/domain/repos/review_entity.dart';
+import 'package:bag_store_ecommerec/furniture/home/domain/entites/review_entity.dart';
 
 class ReviewModel {
   final String name;
