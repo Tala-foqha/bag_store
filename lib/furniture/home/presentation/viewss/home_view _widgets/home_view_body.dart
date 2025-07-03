@@ -2,8 +2,8 @@
 import 'package:bag_store_ecommerec/core/helper_function/build_error_bar.dart';
 import 'package:bag_store_ecommerec/core/helper_function/fet_dummy_products.dart';
 import 'package:bag_store_ecommerec/furniture/home/domain/repos/products_entity.dart';
-import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/manger/best_selling_products/best_selling_products_cubit.dart';
-import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/manger/get_products/get_products_cubit.dart';
+import 'package:bag_store_ecommerec/furniture/home/presentation/manger/best_selling_products/best_selling_products_cubit.dart';
+import 'package:bag_store_ecommerec/furniture/home/presentation/manger/get_products/get_products_cubit.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/home_view%20_widgets/all_brands_and_see_all_widgets.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/home_view%20_widgets/bag_with_details_item_list_view.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/home_view%20_widgets/brand_item_list_view.dart';

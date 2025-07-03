@@ -7,7 +7,7 @@ import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/cart_view
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/cart_view_widgets/ground_total_widget.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/cart_view_widgets/item_total_widget.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/cart_view_widgets/my_cart_nav_bar.dart';
-import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/manger/cart/cart_cubit.dart';
+import 'package:bag_store_ecommerec/furniture/home/presentation/manger/cart/cart_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';

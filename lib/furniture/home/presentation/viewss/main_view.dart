@@ -4,7 +4,7 @@ import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/home_view
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/home_view.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/main_view_widget/main_view_body.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/main_view_widget/main_view_body_bloc_consumer.dart';
-import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/manger/cart/cart_cubit.dart';
+import 'package:bag_store_ecommerec/furniture/home/presentation/manger/cart/cart_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -23,6 +23,7 @@ class _MainViewState extends State<MainView> {
     return BlocProvider(
       create: (context) => CartCubit(),
       child: Scaffold(
+        backgroundColor: Colors.white,
         bottomNavigationBar: HomeViewNavBar(
           onItemTapped: (index) {
             setState(() {
