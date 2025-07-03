@@ -21,6 +21,11 @@ class AppStyles {
     fontSize: 14,
     fontWeight: FontWeight.w300
   );
+   static final TextStyle Regular13=GoogleFonts.lexend(
+    fontSize: 13,
+    fontWeight: FontWeight.w400
+  );
+
 
   static final TextStyle meduim16=GoogleFonts.lexend(
     fontSize: 16,
@@ -30,6 +35,10 @@ class AppStyles {
   static final TextStyle meduim18=GoogleFonts.lexend(
     fontSize: 18,
     fontWeight: FontWeight.w500
+  );
+   static final TextStyle semiBold=GoogleFonts.lexend(
+    fontSize: 13,
+    fontWeight: FontWeight.w600
   );
    static final TextStyle Light16=GoogleFonts.lexend(
     fontSize: 16,
