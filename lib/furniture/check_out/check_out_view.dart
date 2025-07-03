@@ -8,7 +8,9 @@ static const routeName='Check-out';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: CheckOutViewBody(),
+      backgroundColor: Colors.white,
+      body: SafeArea(child: CheckOutViewBody()),
+      
     );
   }
 }
