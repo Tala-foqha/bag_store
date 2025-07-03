@@ -23,7 +23,17 @@ class _CartIteemState extends State<CartIteem> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<CartItemCubit, CartItemState>(
+      buildWhen: (previous, current) {
+        if(current is CartItemUpdated){
+          if(current.cartItemEntity==widget.cartItemEntity){
+            return true;
+          }
+        }
+        return false;
+      } 
+      ,
       builder: (context, state) {
+        
         
         
           return Padding(

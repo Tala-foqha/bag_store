@@ -2,6 +2,7 @@
 
 import 'package:bag_store_ecommerec/core/utils/app_styles.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/manger/cart/cart_cubit.dart';
+import 'package:bag_store_ecommerec/furniture/home/presentation/manger/cart_item/cart_item_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -12,17 +13,23 @@ class ItemTotalWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(children: [
-      Text('Item Total',
-      style: AppStyles.Light16.copyWith(
-        color: Color(0xff070A03)
-      ),
-      ),
-      Spacer(),
-      Text('\$${context.watch<CartCubit>().cartEntity.calculateTotalPrice()}',
-       style: AppStyles.Light16.copyWith(
-        color: Color(0xff070A03)
-      ),)
-    ],);
+    return BlocBuilder<CartItemCubit, CartItemState>(
+      builder: (context, state) {
+       
+          return Row(children: [
+          Text('Item Total',
+          style: AppStyles.Light16.copyWith(
+            color: Color(0xff070A03)
+          ),
+          ),
+          Spacer(),
+          Text('\$${context.watch<CartCubit>().cartEntity.calculateTotalPrice()}',
+           style: AppStyles.Light16.copyWith(
+            color: Color(0xff070A03)
+          ),)
+        ],);  
+        }
+      
+    );
   }
 }
