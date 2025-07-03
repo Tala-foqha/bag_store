@@ -24,13 +24,7 @@ class InActiveStepItem extends StatelessWidget {
             color: Colors.black,
             fit: BoxFit.scaleDown,),
           ),
-        SizedBox(
-          width: 30,
-          child: DottedLine(
-            dashLength: 1.0,
-            dashColor: AppColors.primaryColor
-          ),
-        ),
+      
 
         ],
       ),
