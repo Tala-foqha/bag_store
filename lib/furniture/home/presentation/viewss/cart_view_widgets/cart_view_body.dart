@@ -1,15 +1,15 @@
 // furniture/home/presentation/viewss/cart_view_widgets/cart_view_body.dart
-import 'package:bag_store_ecommerec/core/utils/app_colors.dart';
 import 'package:bag_store_ecommerec/core/utils/app_styles.dart';
 import 'package:bag_store_ecommerec/core/widgets/custom_button.dart';
 import 'package:bag_store_ecommerec/core/widgets/custom_text_field.dart';
-import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/cart_view_widgets/cart_item.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/cart_view_widgets/cart_item_list_view.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/cart_view_widgets/discount_widget.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/cart_view_widgets/ground_total_widget.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/cart_view_widgets/item_total_widget.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/cart_view_widgets/my_cart_nav_bar.dart';
+import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/manger/cart/cart_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 
 class CartViewBody extends StatelessWidget {
@@ -25,7 +25,7 @@ class CartViewBody extends StatelessWidget {
           SizedBox(height: 8,),
           MyCartNavBar(),
           SizedBox(height: 16,),
-          CartItemListView(cartItems: [],),
+          CartItemListView(cartItems: context.read<CartCubit>().cartEntity.cartItems,),
           SizedBox(height: 100,),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),

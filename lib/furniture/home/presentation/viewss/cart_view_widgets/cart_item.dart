@@ -6,11 +6,17 @@ import 'package:bag_store_ecommerec/furniture/home/domain/entites/cart_item_enti
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/cart_view_widgets/incrase_abd_deacrese_widgets.dart';
 import 'package:flutter/material.dart';
 
-class CartIteem extends StatelessWidget {
+class CartIteem extends StatefulWidget {
   const CartIteem({
     super.key, required this.cartItemEntity,
   });
 final CartItemEntity cartItemEntity;
+
+  @override
+  State<CartIteem> createState() => _CartIteemState();
+}
+
+class _CartIteemState extends State<CartIteem> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -25,7 +31,7 @@ final CartItemEntity cartItemEntity;
               borderRadius: BorderRadius.circular(16),
               color: Color(0xffF7F7F7)
             ),
-            child: Image.network(cartItemEntity.productsEntity.imageUrl),
+            child: Image.network(widget.cartItemEntity.productsEntity.imageUrl),
             
           ),
           SizedBox(width: 12,),
@@ -36,14 +42,14 @@ final CartItemEntity cartItemEntity;
               SizedBox(
                 width: 219,
                 height: 48,
-                child: Text(cartItemEntity.productsEntity.description,
+                child: Text(widget.cartItemEntity.productsEntity.description,
                 style: AppStyles.meduim16.copyWith(
                   color: Color(0xff070A03)
                 ),
                 ),
               ),
               SizedBox(height: 4,),
-              Text('\$${cartItemEntity.productsEntity.price}',
+              Text('\$${widget.cartItemEntity.productsEntity.price}',
               style: AppStyles.Light14.copyWith(
                 color: Color(0xff070A03)
               ),
@@ -52,14 +58,21 @@ final CartItemEntity cartItemEntity;
               Row(
                 children: [
                   IncreaseAndDeacreasWidgets(
+                    onTap: () {
+                      widget.cartItemEntity.deacreseCount();
+                      setState(() {
+                        
+                      });
+                    },
                     colorBackGround: Colors.white,
                     color: Color(0xffEDEDED),
                    icon: Icons.remove,
                     iconColor: Colors.black,
-    
+                     cartItems: widget.cartItemEntity,
+                      
                   ),
                   SizedBox(width: 12,),
-                  Text('1',
+                  Text(widget.cartItemEntity.count.toString(),
                   style: AppStyles.Light16.copyWith(
                     color: Color(0xff070A03)
                   ),
@@ -67,9 +80,15 @@ final CartItemEntity cartItemEntity;
                   SizedBox(width: 12,),
     
                   IncreaseAndDeacreasWidgets(
+                    onTap: () {
+                      widget.cartItemEntity.increaseCount();
+                      setState(() {
+                        
+                      });
+                    },
                     colorBackGround:AppColors.primaryColor,
                    icon: Icons.add,
-                    iconColor: Colors.white,
+                    iconColor: Colors.white, cartItems: widget.cartItemEntity,
     
                   ),
     

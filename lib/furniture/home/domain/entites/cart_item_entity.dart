@@ -7,15 +7,10 @@ class CartItemEntity {
 
   CartItemEntity({required this.productsEntity,this.count=0});
 
-  double get itemTotal {
-    final price = double.tryParse(productsEntity.price) ?? 0.0;
-    return price * count;
-  }
-
-  // ✅ ميثود لحساب total لكل العناصر في السلة
-  static double calculateTotalForAll(List<CartItemEntity> items) {
-    return items.fold(0.0, (total, item) => total + item.itemTotal);
-  }
+  num calculateTotalPrice() {
+  final price = double.tryParse(productsEntity.price) ?? 0.0;
+  return price * count;
+}
 
   increaseCount(){
     count++;

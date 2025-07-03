@@ -1,8 +1,10 @@
-// furniture/home/presentation/viewss/widgets/popular_item.dart
+// furniture/home/presentation/viewss/home_view _widgets/popular_item.dart
 
 import 'package:bag_store_ecommerec/core/utils/app_styles.dart';
 import 'package:bag_store_ecommerec/furniture/home/domain/repos/products_entity.dart';
+import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/manger/cart/cart_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class PopularItem extends StatelessWidget {
@@ -110,17 +112,22 @@ Column(
             ),
           ),
            SizedBox(width: 8,),
-                 Container(
-            width: 48,
-            height: 84,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
-              color: Color(0xff6C8947)
-            ),
-            child: SvgPicture.asset('assets/images/shopping bag.svg',
-            fit: BoxFit.scaleDown,
-            ),
-            )
+                 GestureDetector(
+                  onTap: (){
+                    context.read<CartCubit>().addProduct(productsEntity);
+                  },
+                   child: Container(
+                               width: 48,
+                               height: 84,
+                               decoration: BoxDecoration(
+                                 borderRadius: BorderRadius.circular(12),
+                                 color: Color(0xff6C8947)
+                               ),
+                               child: SvgPicture.asset('assets/images/shopping bag.svg',
+                               fit: BoxFit.scaleDown,
+                               ),
+                               ),
+                 )
         ],
       ),
     );
