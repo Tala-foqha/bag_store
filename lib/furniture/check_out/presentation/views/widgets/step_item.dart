@@ -35,6 +35,9 @@ class StepItem extends StatelessWidget {
 }else{
   showBar(context, 'plaease salect a payment method');
 }
+
+
+
           },
           child: Container(
             height: 56,

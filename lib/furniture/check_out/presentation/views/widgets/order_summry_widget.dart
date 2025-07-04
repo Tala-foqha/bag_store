@@ -1,8 +1,10 @@
 // furniture/check_out/presentation/views/widgets/order_summry_widget.dart
 
 import 'package:bag_store_ecommerec/core/utils/app_styles.dart';
+import 'package:bag_store_ecommerec/furniture/check_out/domain/entites/order_entity.dart';
 import 'package:bag_store_ecommerec/furniture/check_out/presentation/views/widgets/payment_item.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class OrderSummryWidget extends StatelessWidget {
   const OrderSummryWidget({
@@ -23,7 +25,7 @@ class OrderSummryWidget extends StatelessWidget {
        ),
        Spacer(),
        Text(
-         '150\$',
+         '\$${context.read<OrderEntity>().cartEntity.calculateTotalPrice()}',
          style: AppStyles.semiBold16.copyWith(color: Color(0xff0C0D0D)),
        ),
      ],
@@ -37,7 +39,7 @@ class OrderSummryWidget extends StatelessWidget {
        ),
        Spacer(),
        Text(
-         '30\$',
+         '40\$',
          style: AppStyles.semiBold16.copyWith(color: Color(0xff0C0D0D)),
        ),
      ],
@@ -63,7 +65,7 @@ class OrderSummryWidget extends StatelessWidget {
        ),
        Spacer(),
        Text(
-         '180\$',
+         '\$${context.read<OrderEntity>().cartEntity.calculateTotalPrice()+30}',
          style: AppStyles.semiBold16.copyWith(color: Colors.black),
        ),
      ],

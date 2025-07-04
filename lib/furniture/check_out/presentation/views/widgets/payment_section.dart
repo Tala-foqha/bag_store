@@ -4,8 +4,8 @@ import 'package:bag_store_ecommerec/furniture/check_out/presentation/views/widge
 import 'package:flutter/material.dart';
 
 class PaymentSection extends StatelessWidget {
-  const PaymentSection({super.key});
-
+  const PaymentSection({super.key, required this.pageController});
+final PageController pageController;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -14,7 +14,7 @@ class PaymentSection extends StatelessWidget {
         SizedBox(height: 24,),
         
        OrderSummryWidget(),
-       DliverAddressWidget()
+       DliverAddressWidget(pageController: pageController,)
 
 ]);
   }}
