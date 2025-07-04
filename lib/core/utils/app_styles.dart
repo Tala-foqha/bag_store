@@ -44,6 +44,10 @@ class AppStyles {
     fontSize: 13,
     fontWeight: FontWeight.w600
   );
+   static final TextStyle semiBold16=GoogleFonts.lexend(
+    fontSize: 16,
+    fontWeight: FontWeight.w600
+  );
    static final TextStyle Light16=GoogleFonts.lexend(
     fontSize: 16,
     fontWeight: FontWeight.w300
