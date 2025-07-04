@@ -1,7 +1,9 @@
 // furniture/check_out/presentation/views/widgets/check_out_view_body.dart
 import 'package:bag_store_ecommerec/core/helper_function/build_error_bar.dart';
+import 'package:bag_store_ecommerec/core/widgets/add_order_cubit_bloc_builder.dart';
 import 'package:bag_store_ecommerec/core/widgets/custom_button.dart';
 import 'package:bag_store_ecommerec/furniture/check_out/domain/entites/order_entity.dart';
+import 'package:bag_store_ecommerec/furniture/check_out/presentation/views/manager/orders/orders_cubit.dart';
 import 'package:bag_store_ecommerec/furniture/check_out/presentation/views/widgets/check_out_steps.dart';
 import 'package:bag_store_ecommerec/furniture/check_out/presentation/views/widgets/check_out_steps_page_view.dart';
 import 'package:bag_store_ecommerec/furniture/check_out/presentation/views/widgets/check_out_text_widget.dart';
@@ -73,6 +75,10 @@ pageController.addListener(
             _handleShippingWidgetValidate(context);}
             else if(currentPageIndex==1){
             _handleAddressSectionValidation();}
+            else{
+              var orderEntity=context.read<OrderEntity>();
+             context.read<OrdersCubit>().addOrder(order: orderEntity);
+            }
   }),
       ),
       SizedBox(height: 32,)

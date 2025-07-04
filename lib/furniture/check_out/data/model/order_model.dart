@@ -25,7 +25,7 @@ factory OrderModel.fromEntity(OrderEntity orders){
    toJson()=>{
 'totalPrice':totalPrice,
 'uid':uid,
-'shippingAddressModel':shippingAddressModel,
+'shippingAddressModel':shippingAddressModel.toJson(),
 'paymentMethod':paymentMethod,
 'orderProducts':orderProducts.map((e)=>e.toJson()).toList()
    };
