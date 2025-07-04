@@ -1,4 +1,5 @@
 // furniture/home/presentation/viewss/cart_view_widgets/cart_view_body.dart
+import 'package:bag_store_ecommerec/core/helper_function/build_error_bar.dart';
 import 'package:bag_store_ecommerec/core/utils/app_styles.dart';
 import 'package:bag_store_ecommerec/core/widgets/custom_button.dart';
 import 'package:bag_store_ecommerec/core/widgets/custom_text_field.dart';
@@ -70,8 +71,11 @@ class CartViewBody extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: CustomButton(text: 'Proceed to Checkout', onPressed: 
               (){
+                if(context.read<CartCubit>().cartEntity.cartItems.isNotEmpty){
                 Navigator.pushNamed(context, CheckOutView.routeName);
-
+                }else{
+              showBar(context,'No Item In the Cart');
+                }
               }),
             ),
             SizedBox(height: 10,)

@@ -29,7 +29,7 @@ class BagStore extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: SplashView(),
       onGenerateRoute: onGenerateRoute,
-      initialRoute: CheckOutView.routeName,
+      initialRoute: MainView.routeName,
     );
   }
 }
