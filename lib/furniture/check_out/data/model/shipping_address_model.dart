@@ -12,6 +12,7 @@ class ShippingAddressModel {
 
   ShippingAddressModel({
      this.name,this.phone,this.city, this.email,this.address,this.addressDetails});
+     
  factory ShippingAddressModel.fromEntity(ShippingAddressEntity shippingAddressEntity){
   return ShippingAddressModel(
    name: shippingAddressEntity.name,

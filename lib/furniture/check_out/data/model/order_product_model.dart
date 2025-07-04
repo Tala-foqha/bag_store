@@ -25,4 +25,12 @@ class OrderProductModel {
 
       
   }
+  toJson()=>{
+'name':name,
+'code':code,
+'imageUrl':imageUrl,
+'price':price,
+'quantity':quantity
+
+  };
 }
