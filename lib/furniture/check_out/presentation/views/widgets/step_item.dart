@@ -1,7 +1,10 @@
 // furniture/check_out/presentation/views/widgets/step_item.dart
+import 'package:bag_store_ecommerec/core/helper_function/build_error_bar.dart';
 import 'package:bag_store_ecommerec/core/utils/app_colors.dart';
 import 'package:bag_store_ecommerec/core/utils/app_styles.dart';
+import 'package:bag_store_ecommerec/furniture/check_out/domain/entites/order_entity.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 
 class StepItem extends StatelessWidget {
@@ -25,9 +28,13 @@ class StepItem extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: (){
-            pageController.animateToPage(index,
-             duration: Duration(milliseconds: 300),
-              curve: Curves.easeIn);
+            if (context.read<OrderEntity>().payWithCash!=null) {
+  pageController.animateToPage(index,
+   duration: Duration(milliseconds: 300),
+    curve: Curves.easeIn);
+}else{
+  showBar(context, 'plaease salect a payment method');
+}
           },
           child: Container(
             height: 56,

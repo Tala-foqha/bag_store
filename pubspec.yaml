@@ -46,6 +46,7 @@ dependencies:
   cloud_firestore: ^5.6.9
   skeletonizer: ^2.0.1
   dotted_line: ^3.2.3
+  provider: ^6.1.5
 
   
 

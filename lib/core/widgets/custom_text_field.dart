@@ -3,10 +3,11 @@ import 'package:bag_store_ecommerec/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
-  const CustomTextField({super.key, this.suffixIcon, required this.hintText, this.controller,  this.obscureText=false, this.validator, this.prefixIcon, this.color, this.colortext});
+  const CustomTextField({super.key, this.suffixIcon, required this.hintText, this.controller,  this.obscureText=false, this.validator, this.prefixIcon, this.color, this.colortext, this.onSaved});
  final Widget? suffixIcon;
  final Widget? prefixIcon;
  final String hintText;
+ final void Function(String?)? onSaved;
  final TextEditingController? controller;
  final Color? color;
  final Color?colortext;
@@ -15,6 +16,7 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onSaved:onSaved ,
       obscureText:obscureText ,
       controller:controller ,
       validator: validator,

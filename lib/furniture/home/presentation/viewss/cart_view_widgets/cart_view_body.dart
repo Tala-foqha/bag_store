@@ -72,7 +72,9 @@ class CartViewBody extends StatelessWidget {
               child: CustomButton(text: 'Proceed to Checkout', onPressed: 
               (){
                 if(context.read<CartCubit>().cartEntity.cartItems.isNotEmpty){
-                Navigator.pushNamed(context, CheckOutView.routeName);
+                Navigator.pushNamed(context, CheckOutView.routeName,
+                arguments:context.read<CartCubit>().cartEntity 
+                );
                 }else{
               showBar(context,'No Item In the Cart');
                 }
