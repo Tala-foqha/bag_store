@@ -3,6 +3,7 @@ import 'package:bag_store_ecommerec/furniture/check_out/domain/entites/shipping_
 import 'package:bag_store_ecommerec/furniture/home/domain/entites/cart_entity.dart';
 
 class OrderEntity {
+  final String uId;
 final CartEntity cartEntity;
   bool? payWithCash;
   ShippingAddressEntity? shippingAddressEntity=ShippingAddressEntity();
@@ -11,6 +12,8 @@ final CartEntity cartEntity;
   OrderEntity(this.cartEntity,
 
   {
-    this.payWithCash,}
+    this.payWithCash,
+    required this.uId
+    }
    );
 }

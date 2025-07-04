@@ -45,8 +45,8 @@ class DliverAddressWidget extends StatelessWidget {
            style:AppStyles.Regular13.copyWith(
              fontSize: 16,
              color: Color(0xff4E5556)
-           ) ,)
-         ],
+           ) ,),
+         ]
        )
      ],
     ));
