@@ -14,16 +14,26 @@ class CheckOutViewBody extends StatefulWidget {
 
 class _CheckOutViewBodyState extends State<CheckOutViewBody> {
  late PageController pageController;
+
   @override
   void initState(){
 super.initState();
 pageController=PageController();
+pageController.addListener(
+  (){
+    setState(() {
+     currentPageIndex=pageController.page!.toInt(); 
+    });
+
+  }
+);
   }
   @override
   void dispose() {
   pageController.dispose();
     super.dispose();
   }
+  int currentPageIndex=0;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -32,11 +42,19 @@ pageController=PageController();
         SizedBox(height:8 ,),
       CheckOutTextWidget(),
       SizedBox(height: 8,),
-    CheckoutSteps(),
+    CheckoutSteps(
+      currentIndex: currentPageIndex,
+      onStepTapped: (index) {
+    setState(() {
+      currentPageIndex = index; // غيّر الخطوة
+    });
+    pageController.jumpToPage(index); // أو animateToPage(index)
+  },
+    ),
     Expanded(
       child: CheckOutStepsPageView(pageController: pageController)),
       CustomButton(text: 'Next', onPressed: (){
-        pageController.animateToPage(2,duration: Duration(milliseconds: 300),
+        pageController.animateToPage(currentPageIndex+1,duration: Duration(milliseconds: 300),
          curve: Curves.easeIn);
       }),
       SizedBox(height: 32,)

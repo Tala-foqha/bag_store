@@ -4,15 +4,15 @@ import 'package:bag_store_ecommerec/furniture/check_out/presentation/views/widge
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
 
-class CheckoutSteps extends StatefulWidget {
-  const CheckoutSteps({super.key});
+class CheckoutSteps extends StatelessWidget {
+  final int currentIndex;
+  final void Function(int index)? onStepTapped;
 
-  @override
-  State<CheckoutSteps> createState() => _CheckoutStepsState();
-}
-
-class _CheckoutStepsState extends State<CheckoutSteps> {
-  int currentIndex = 0;
+  const CheckoutSteps({
+    super.key,
+    required this.currentIndex,
+    this.onStepTapped,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,8 @@ class _CheckoutStepsState extends State<CheckoutSteps> {
           StepItem(
             isActive: currentIndex >= 0,
             iconPath: 'assets/images/package box 06.svg',
-            onTap: () => setState(() => currentIndex = 0), text: 'Shipping',
+            onTap: () =>onStepTapped,
+            text: 'Shipping',
           ),
           SizedBox(width: 8),
           Expanded(
@@ -33,15 +34,17 @@ class _CheckoutStepsState extends State<CheckoutSteps> {
               lineLength: double.infinity,
               lineThickness: 2.0,
               dashLength: 6.0,
-              dashColor:
-                  currentIndex >= 1 ? AppColors.primaryColor : Color(0xffDFDFDF),
+              dashColor: currentIndex >= 1
+                  ? AppColors.primaryColor
+                  : Color(0xffDFDFDF),
             ),
           ),
           SizedBox(width: 8),
           StepItem(
             isActive: currentIndex >= 1,
             iconPath: 'assets/images/location 01.svg',
-            onTap: () => setState(() => currentIndex = 1), text: 'Address',
+            onTap: () => onStepTapped,
+            text: 'Address',
           ),
           SizedBox(width: 8),
           Expanded(
@@ -50,15 +53,17 @@ class _CheckoutStepsState extends State<CheckoutSteps> {
               lineLength: double.infinity,
               lineThickness: 2.0,
               dashLength: 6.0,
-              dashColor:
-                  currentIndex == 2 ? AppColors.primaryColor : Color(0xffDFDFDF),
+              dashColor: currentIndex == 2
+                  ? AppColors.primaryColor
+                  : Color(0xffDFDFDF),
             ),
           ),
           SizedBox(width: 8),
           StepItem(
             isActive: currentIndex == 2,
-            iconPath:  'assets/images/location 01.svg',
-            onTap: () => setState(() => currentIndex = 2), text: 'Review',
+            iconPath: 'assets/images/location 01.svg',
+            onTap: () => onStepTapped,
+            text: 'Review',
           ),
         ],
       ),
