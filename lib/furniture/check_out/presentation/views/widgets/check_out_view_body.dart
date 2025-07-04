@@ -35,7 +35,10 @@ pageController=PageController();
     CheckoutSteps(),
     Expanded(
       child: CheckOutStepsPageView(pageController: pageController)),
-      CustomButton(text: 'Next', onPressed: (){}),
+      CustomButton(text: 'Next', onPressed: (){
+        pageController.nextPage(duration: Duration(milliseconds: 300),
+         curve: Curves.easeIn);
+      }),
       SizedBox(height: 32,)
       ],
     );
