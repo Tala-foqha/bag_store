@@ -1,6 +1,7 @@
 // furniture/check_out/presentation/views/widgets/check_out_steps_page_view.dart
 
 import 'package:bag_store_ecommerec/furniture/check_out/presentation/views/widgets/address_input_section.dart';
+import 'package:bag_store_ecommerec/furniture/check_out/presentation/views/widgets/payment_section.dart';
 import 'package:bag_store_ecommerec/furniture/check_out/presentation/views/widgets/shipping_section.dart';
 import 'package:flutter/material.dart';
 
@@ -30,7 +31,7 @@ class CheckOutStepsPageView extends StatelessWidget {
     return [
 ShippingSection(),
 AddressInputSection(),
-SizedBox()
+PaymentSection()
     ];
   }
 }
