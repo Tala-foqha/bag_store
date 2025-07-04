@@ -53,12 +53,31 @@ pageController.addListener(
     ),
     Expanded(
       child: CheckOutStepsPageView(pageController: pageController)),
-      CustomButton(text: 'Next', onPressed: (){
-        pageController.animateToPage(currentPageIndex+1,duration: Duration(milliseconds: 300),
-         curve: Curves.easeIn);
-      }),
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: CustomButton(
+          text: getNextButtonText(currentPageIndex),
+           onPressed: (){
+          pageController.animateToPage(currentPageIndex+1,duration: Duration(milliseconds: 300),
+           curve: Curves.easeIn);
+        }),
+      ),
       SizedBox(height: 32,)
       ],
     );
+  }
+  
+  getNextButtonText(int currentPageIndex) {
+    switch(currentPageIndex){
+      case 0:
+      return 'Next';
+       case 1:
+      return 'Next';
+       case 2:
+      return 'Pay with Paypal';
+       default:
+       return 'Next';
+
+    }
   }
 }

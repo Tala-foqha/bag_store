@@ -61,7 +61,7 @@ class CheckoutSteps extends StatelessWidget {
           SizedBox(width: 8),
           StepItem(
             isActive: currentIndex == 2,
-            iconPath: 'assets/images/location 01.svg',
+            iconPath: 'assets/images/card.svg',
             onTap: () => onStepTapped,
             text: 'Review',
           ),
