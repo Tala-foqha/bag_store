@@ -43,6 +43,7 @@ pageController.addListener(
       CheckOutTextWidget(),
       SizedBox(height: 8,),
     CheckoutSteps(
+      pageController: pageController,
       currentIndex: currentPageIndex,
       onStepTapped: (index) {
     setState(() {

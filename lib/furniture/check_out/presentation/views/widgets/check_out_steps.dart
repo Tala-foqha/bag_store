@@ -7,11 +7,12 @@ import 'package:flutter/material.dart';
 class CheckoutSteps extends StatelessWidget {
   final int currentIndex;
   final void Function(int index)? onStepTapped;
+  final PageController pageController;
 
   const CheckoutSteps({
     super.key,
     required this.currentIndex,
-    this.onStepTapped,
+    this.onStepTapped, required this.pageController,
   });
 
   @override
@@ -24,8 +25,10 @@ class CheckoutSteps extends StatelessWidget {
           StepItem(
             isActive: currentIndex >= 0,
             iconPath: 'assets/images/package box 06.svg',
-            onTap: () =>onStepTapped,
+            //onTap: () =>onStepTapped,
             text: 'Shipping',
+             pageController: pageController,
+              index: 0,
           ),
           SizedBox(width: 8),
           Expanded(
@@ -43,8 +46,8 @@ class CheckoutSteps extends StatelessWidget {
           StepItem(
             isActive: currentIndex >= 1,
             iconPath: 'assets/images/location 01.svg',
-            onTap: () => onStepTapped,
-            text: 'Address',
+           // onTap: () => onStepTapped,
+            text: 'Address', pageController: pageController, index: 1,
           ),
           SizedBox(width: 8),
           Expanded(
@@ -60,10 +63,11 @@ class CheckoutSteps extends StatelessWidget {
           ),
           SizedBox(width: 8),
           StepItem(
+            
             isActive: currentIndex == 2,
             iconPath: 'assets/images/card.svg',
-            onTap: () => onStepTapped,
-            text: 'Review',
+            //onTap: () => onStepTapped,
+            text: 'Review', pageController: pageController, index: 2,
           ),
         ],
       ),

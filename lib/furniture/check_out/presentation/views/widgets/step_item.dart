@@ -9,12 +9,14 @@ class StepItem extends StatelessWidget {
   final String iconPath;
   final VoidCallback? onTap;
   final String text;
+  final PageController pageController;
+  final int index;
 
   const StepItem({
     super.key,
     required this.isActive,
     required this.iconPath,
-    this.onTap, required this.text,
+    this.onTap, required this.text, required this.pageController, required this.index,
   });
 
   @override
@@ -22,7 +24,11 @@ class StepItem extends StatelessWidget {
     return Column(
       children: [
         GestureDetector(
-          onTap: onTap,
+          onTap: (){
+            pageController.animateToPage(index,
+             duration: Duration(milliseconds: 300),
+              curve: Curves.easeIn);
+          },
           child: Container(
             height: 56,
             width: 56,
