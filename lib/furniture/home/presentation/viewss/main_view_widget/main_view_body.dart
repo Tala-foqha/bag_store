@@ -2,6 +2,7 @@
 
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/cart_view.dart';
 import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/home_view.dart';
+import 'package:bag_store_ecommerec/furniture/home/presentation/viewss/profile_view.dart';
 import 'package:flutter/material.dart';
 
 class MainViewBody extends StatelessWidget {
@@ -21,7 +22,8 @@ class MainViewBody extends StatelessWidget {
         HomeView(),
        SizedBox(),
         SizedBox()
-       , CartView()],
+       , CartView(),
+       ProfileView()],
     );
   }
 }
