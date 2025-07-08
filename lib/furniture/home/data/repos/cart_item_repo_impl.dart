@@ -10,22 +10,28 @@ class CartItemRepoImpl implements CartItemRepo {
 
   CartItemRepoImpl({required this.databaseServices});
   @override
-  final userId=FirebaseAuth.instance.currentUser!.uid;
+  //final userId=FirebaseAuth.instance.currentUser!.uid??'';
   
   
  
-  Future<void> addToCart(CartItemEntity cartItemEntity)async {
-    await databaseServices.addData(
-      documentId: cartItemEntity.productsEntity.code,
-      collectionName:'users/${userId}/cart',
-     data: CartItemModel.fromEntity(cartItemEntity).toJson());
+  // Future<void> addToCart(CartItemEntity cartItemEntity)async {
+  //   await databaseServices.addData(
+  //     documentId: cartItemEntity.productsEntity.code,
+  //     //collectionName:'users/${userId}/cart',
+  //    data: CartItemModel.fromEntity(cartItemEntity).toJson());
   
 
-  }
+  // }
   
   @override
   Future<void> updateItemCart(CartItemEntity cartItem) {
     // TODO: implement updateItemCart
+    throw UnimplementedError();
+  }
+  
+  @override
+  Future<void> addToCart(CartItemEntity cartItemEntity) {
+    // TODO: implement addToCart
     throw UnimplementedError();
   }
   

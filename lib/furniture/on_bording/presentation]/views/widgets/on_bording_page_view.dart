@@ -1,4 +1,6 @@
 // furniture/on_bording/presentation]/views/widgets/on_bording_page_view.dart
+import 'package:bag_store_ecommerec/core/services/shared_preffrence_singlton.dart';
+import 'package:bag_store_ecommerec/core/utils/constant.dart';
 import 'package:bag_store_ecommerec/furniture/auth/presentation/views/signin_view.dart';
 import 'package:bag_store_ecommerec/furniture/on_bording/presentation%5D/views/widgets/page_view_item.dart';
 import 'package:flutter/material.dart';
@@ -19,16 +21,18 @@ final PageController pageController;
          buttuntext: 'Next', 
          currentPage: currentPage,
          title: 'Shop Premium Bags at\n Unbeatable Prices', onPressed: () { 
+          SharedPreffrenceSinglton.setBool(isOnBordingViewSeen, true);
            pageController.nextPage(duration: Duration(milliseconds: 300),
          curve: Curves.easeIn);
 
           },),
-         PageViewItem(images: 'assets/images/on_bording_images2.png',
+         PageViewItem(images: 'assets/imasplages/on_bording_images2.png',
           title: 'Stay Trendy with Latest\n Bag Designs',
            subtitle: 'Find seasonal trends and timeless classics\n in one place.', 
            buttuntext: 'Next',
            currentPage: currentPage,
            onPressed: () { 
+            SharedPreffrenceSinglton.setBool(isOnBordingViewSeen, true);
            pageController.nextPage(duration: Duration(milliseconds: 300),
          curve: Curves.easeIn);
            }, 
@@ -39,6 +43,7 @@ final PageController pageController;
              subtitle: 'Enjoy a seamless shopping experience on\n your mobile.',
               buttuntext: 'Get Started',
                currentPage: currentPage, onPressed: () {  
+                SharedPreffrenceSinglton.setBool(isOnBordingViewSeen, true);
                 Navigator.pushReplacementNamed(context, SigninView.routeNmae);
                },
                )

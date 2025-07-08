@@ -2,6 +2,7 @@
 import 'package:bag_store_ecommerec/core/helper_function/on_generate_route.dart';
 import 'package:bag_store_ecommerec/core/services/custom_bloc_observer.dart';
 import 'package:bag_store_ecommerec/core/services/get_it_services.dart';
+import 'package:bag_store_ecommerec/core/services/shared_preffrence_singlton.dart';
 import 'package:bag_store_ecommerec/firebase_options.dart';
 import 'package:bag_store_ecommerec/furniture/auth/presentation/views/signin_view.dart';
 import 'package:bag_store_ecommerec/furniture/check_out/presentation/views/check_out_view.dart';
@@ -17,6 +18,7 @@ void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer=CustomBlocObserver();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+ await SharedPreffrenceSinglton.init();
   setup();
   runApp(const BagStore());
 }

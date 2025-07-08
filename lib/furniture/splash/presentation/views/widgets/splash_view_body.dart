@@ -1,4 +1,7 @@
 // furniture/splash/presentation/views/widgets/splash_view_body.dart
+import 'package:bag_store_ecommerec/core/services/shared_preffrence_singlton.dart';
+import 'package:bag_store_ecommerec/core/utils/constant.dart';
+import 'package:bag_store_ecommerec/furniture/auth/presentation/views/signin_view.dart';
 import 'package:bag_store_ecommerec/furniture/on_bording/presentation%5D/views/on_bording_view.dart';
 import 'package:flutter/material.dart';
 
@@ -60,8 +63,14 @@ class _SplashViewBodyState extends State<SplashViewBody> with SingleTickerProvid
   }
 
   void excuteNavigation() {
+    bool kisOnBordingViewSeen=SharedPreffrenceSinglton.getBool(isOnBordingViewSeen);
     Future.delayed(Duration(seconds: 3), () {
-      Navigator.pushReplacementNamed(context, OnBordingView.routeName);
-    });
+      if(kisOnBordingViewSeen){
+      Navigator.pushReplacementNamed(context, SigninView.routeNmae);
+  }else{
+          Navigator.pushReplacementNamed(context, OnBordingView.routeName);
+
+  }
+  });
   }
 }
