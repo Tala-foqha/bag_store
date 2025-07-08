@@ -16,14 +16,16 @@ final ValueListenable<AutovalidateMode> valueListenable;
         valueListenable:valueListenable ,
         builder: (context,value,child)=> 
         Form(
-  key: formKey,
+       autovalidateMode: value,
+         key: formKey,
+  
   child: Column(
     children: [
       SizedBox(height: 24),
       CustomTextField(
         hintText: 'Full name',
         onSaved: (value) {
-          context.read<OrderEntity>().shippingAddressEntity!.name = value!;
+          context.read<OrderInputEntity>().shippingAddressEntity!.name = value!;
         },
         validator: (value) {
           if (value == null || value.trim().isEmpty) {
@@ -38,7 +40,7 @@ final ValueListenable<AutovalidateMode> valueListenable;
       CustomTextField(
         hintText: 'email',
         onSaved: (value) {
-          context.read<OrderEntity>().shippingAddressEntity!.email = value!;
+          context.read<OrderInputEntity>().shippingAddressEntity!.email = value!;
         },
         validator: (value) {
           if (value == null || value.trim().isEmpty) {
@@ -56,7 +58,7 @@ final ValueListenable<AutovalidateMode> valueListenable;
       CustomTextField(
         hintText: 'Address',
         onSaved: (value) {
-          context.read<OrderEntity>().shippingAddressEntity!.address = value!;
+          context.read<OrderInputEntity>().shippingAddressEntity!.address = value!;
         },
         validator: (value) {
           if (value == null || value.trim().isEmpty) {
@@ -71,7 +73,7 @@ final ValueListenable<AutovalidateMode> valueListenable;
       CustomTextField(
         hintText: 'City',
         onSaved: (value) {
-          context.read<OrderEntity>().shippingAddressEntity!.city = value!;
+          context.read<OrderInputEntity>().shippingAddressEntity!.city = value!;
         },
         validator: (value) {
           if (value == null || value.trim().isEmpty) {
@@ -93,7 +95,7 @@ final ValueListenable<AutovalidateMode> valueListenable;
         },
         
         onSaved: (value) {
-          context.read<OrderEntity>().shippingAddressEntity!.addressDetails = value!;
+          context.read<OrderInputEntity>().shippingAddressEntity!.addressDetails = value!;
         },
         // Optional: no validator
         color: Color(0xffF9FAFA),
@@ -103,7 +105,7 @@ final ValueListenable<AutovalidateMode> valueListenable;
       CustomTextField(
         hintText: 'Mobile number',
         onSaved: (value) {
-          context.read<OrderEntity>().shippingAddressEntity!.phone = value!;
+          context.read<OrderInputEntity>().shippingAddressEntity!.phone = value!;
         },
         validator: (value) {
           if (value == null || value.trim().isEmpty) {

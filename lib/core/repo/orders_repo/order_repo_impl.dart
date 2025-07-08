@@ -14,10 +14,12 @@ class OrderRepoImpl implements OrderRepo {
 
   OrderRepoImpl({required this.firestoreServices});
   @override
-  Future<Either<Failure, void>> addOrders({required OrderEntity orders})async {
+  Future<Either<Failure, void>> addOrders({required OrderInputEntity orders})async {
     try {
+      var orderModel=OrderModel.fromEntity(orders);
   await firestoreServices.addData(
-    collectionName: BackendEndpoints.addorders, data: OrderModel.fromEntity(orders).toJson());
+    documentId: orderModel.orderId,
+    collectionName: BackendEndpoints.addorders, data: orderModel.toJson());
   return Right(null);
 }  catch (e) {
   return Left(ServerFailure(e.toString()));

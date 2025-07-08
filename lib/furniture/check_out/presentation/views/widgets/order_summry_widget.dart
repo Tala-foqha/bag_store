@@ -25,7 +25,7 @@ class OrderSummryWidget extends StatelessWidget {
        ),
        Spacer(),
        Text(
-         '\$${context.read<OrderEntity>().cartEntity.calculateTotalPrice()}',
+         '\$${context.read<OrderInputEntity>().cartEntity.calculateTotalPrice()}',
          style: AppStyles.semiBold16.copyWith(color: Color(0xff0C0D0D)),
        ),
      ],
@@ -65,7 +65,7 @@ class OrderSummryWidget extends StatelessWidget {
        ),
        Spacer(),
        Text(
-         '\$${context.read<OrderEntity>().cartEntity.calculateTotalPrice()+30}',
+         '\$${context.read<OrderInputEntity>().cartEntity.calculateTotalPrice()+30}',
          style: AppStyles.semiBold16.copyWith(color: Colors.black),
        ),
      ],

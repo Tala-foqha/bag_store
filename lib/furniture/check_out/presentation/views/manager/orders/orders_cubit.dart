@@ -9,7 +9,7 @@ part 'orders_state.dart';
 class OrdersCubit extends Cubit<OrdersState> {
   OrdersCubit(this.orderRepo) : super(OrdersInitial());
   final OrderRepo orderRepo;
-  Future<void>addOrder({required OrderEntity order})async{
+  Future<void>addOrder({required OrderInputEntity order})async{
     emit(OrdersLoading());
     final result=await orderRepo.addOrders(orders: order);
     result.fold((failure)=>emit(OrdersFailure(errormessage: failure.message)), 

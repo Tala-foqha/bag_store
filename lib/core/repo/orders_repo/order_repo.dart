@@ -4,5 +4,5 @@ import 'package:bag_store_ecommerec/furniture/check_out/domain/entites/order_ent
 import 'package:dartz/dartz.dart';
 
 abstract class OrderRepo {
-  Future<Either<Failure,void>>addOrders({required OrderEntity orders});
+  Future<Either<Failure,void>>addOrders({required OrderInputEntity orders});
 }

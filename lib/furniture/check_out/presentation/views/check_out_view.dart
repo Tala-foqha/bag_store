@@ -24,7 +24,7 @@ class CheckOutView extends StatelessWidget {
         backgroundColor: Colors.white,
         body: SafeArea(
           child: Provider.value(
-            value: OrderEntity(
+            value: OrderInputEntity(
               cartEntity,
               uId: FirebaseAuth.instance.currentUser!.uid,
             ),

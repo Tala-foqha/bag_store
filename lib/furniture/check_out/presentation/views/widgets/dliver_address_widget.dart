@@ -41,7 +41,7 @@ class DliverAddressWidget extends StatelessWidget {
          children: [
            SvgPicture.asset('assets/images/location.svg'),
            SizedBox(width: 4,),
-           Text('${context.read<OrderEntity>().shippingAddressEntity}',
+           Text('${context.read<OrderInputEntity>().shippingAddressEntity}',
            style:AppStyles.Regular13.copyWith(
              fontSize: 16,
              color: Color(0xff4E5556)

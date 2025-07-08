@@ -24,13 +24,13 @@ class _ShippingSectionState extends State<ShippingSection>with AutomaticKeepAliv
         onTap:(){ 
           selectedIndex=0;
           setState(() {
-       context.read<OrderEntity>().payWithCash=true;
+       context.read<OrderInputEntity>().payWithCash=true;
 
           });
         },
         
          price: (context.
-         read<OrderEntity>()
+         read<OrderInputEntity>()
          .cartEntity.
          calculateTotalPrice()
        +40).toString(),
@@ -41,13 +41,13 @@ class _ShippingSectionState extends State<ShippingSection>with AutomaticKeepAliv
             onTap: () {
               selectedIndex=1;
               setState(() {
-                context.read<OrderEntity>().payWithCash=false;
+                context.read<OrderInputEntity>().payWithCash=false;
                 
               });
             },
             title: 'Buy now, pay later',
          price: context.
-         read<OrderEntity>()
+         read<OrderInputEntity>()
          .cartEntity.
          calculateTotalPrice().
          toString(),
