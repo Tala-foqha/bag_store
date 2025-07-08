@@ -18,8 +18,63 @@ class ProfileViewBody extends StatelessWidget {
         SizedBox(height: 16,),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: ListItemProfile(),
-        )
+          child: ListItemProfile(child: SvgPicture.asset('assets/images/Vector 175.svg'),
+           text: 'My Orders',
+            image: 'assets/images/notepad.svg',),
+        ),
+        SizedBox(height: 16,),
+          Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: ListItemProfile(child: 
+           SvgPicture.asset('assets/images/Vector 175.svg'),
+         
+           text: 'My Cards',
+            image: 'assets/images/card.svg',),
+        ),
+        SizedBox(height: 16,),
+         Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: ListItemProfile(child: SvgPicture.asset('assets/images/Vector 175.svg'),
+           text: 'My Addresses',
+            image: 'assets/images/location.svg',),
+
+        ),
+
+        SizedBox(height: 16,),
+         Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: ListItemProfile(child: SvgPicture.asset('assets/images/Vector 175.svg'),
+           text: 'Dark Mode',
+            image: 'assets/images/eye scanner.svg',),
+            
+            
+        ),
+
+        SizedBox(height: 16,),
+         Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: ListItemProfile(child: SvgPicture.asset('assets/images/Vector 175.svg'),
+           text: 'Privacy Policy',
+            image: 'assets/images/shield-check.svg',),  
+        ),
+
+         SizedBox(height: 16,),
+         Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: ListItemProfile(child: SvgPicture.asset('assets/images/Vector 175.svg'),
+           text: 'Terms & Conditions',
+            image: 'assets/images/notes.svg',),
+        ),
+        
+         SizedBox(height: 16,),
+         Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: ListItemProfile(
+            colorText: Color(0xffEF4444),
+           text: 'Logout',
+           color: Color(0xffFEF2F2),
+            image: 'assets/images/logout 01.svg',),
+        ),
       ],
     );
   }

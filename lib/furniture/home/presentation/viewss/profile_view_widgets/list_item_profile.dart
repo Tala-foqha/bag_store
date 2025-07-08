@@ -7,8 +7,14 @@ import 'package:flutter_svg/svg.dart';
 
 class ListItemProfile extends StatelessWidget {
   const ListItemProfile({
-    super.key,
+    super.key,  this.child, required this.text, required this.image, this.color,  this.colorText,
   });
+  final Widget? child;
+  final String text;
+  final String image;
+  final Color ?color;
+    final Color ?colorText;
+
 
   @override
   Widget build(BuildContext context) {
@@ -19,18 +25,18 @@ class ListItemProfile extends StatelessWidget {
           width: 48,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
-            color: Color(0xffF7F7F7),
+            color:color?? Color(0xffF7F7F7),
           ),
-          child: SvgPicture.asset('assets/images/notepad.svg',fit: BoxFit.scaleDown,),
+          child: SvgPicture.asset(image,fit: BoxFit.scaleDown,),
         ),
         SizedBox(width: 12,),
-        Text('My Orders',
+        Text(text,
         style: AppStyles.Light16.copyWith(
-          color: Color(0xff070A03)
+          color:colorText?? Color(0xff070A03)
         ),
         ),
         Spacer(),
-        SvgPicture.asset('assets/images/Vector 175.svg')
+        child??SizedBox(),
       ],
     );
   }
